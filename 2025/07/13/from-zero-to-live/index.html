@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🚀 From Zero to Live: Setting Up My Jekyll Blog with GitHub Pages and AWS Route 53 | Data Inside Data</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh; height: 100%;">
+
+  
+<header class="site-header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: #f8f9fa; width: 100%;">
+  <div class="site-branding" style="display: flex; align-items: center;">
+    <a href="/">
+    <img src="/assets/images/did-llc-logo2.png" alt="DataInsideData Logo" style="height: 160px; width: 160px; margin-right: 15px;">
+    </a>
+    <h1 class="site-title" style="margin: 0;">
+      <a href="/" style="text-decoration: none; color: #333;">Data Inside Data</a>
+    </h1>
+  </div>
+  <nav class="site-nav" style="margin-left: auto;">
+    
+<ul style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
+  
+    <li>
+      <a href="/" style="text-decoration: none; color: #007acc; font-weight: 500;">
+        Home
+      </a>
+    </li>
+  
+    <li>
+      <a href="/blog/" style="text-decoration: none; color: #007acc; font-weight: 500;">
+        Blog
+      </a>
+    </li>
+  
+    <li>
+      <a href="/about/" style="text-decoration: none; color: #007acc; font-weight: 500;">
+        About
+      </a>
+    </li>
+  
+    <li>
+      <a href="/categories/" style="text-decoration: none; color: #007acc; font-weight: 500;">
+        Categories
+      </a>
+    </li>
+  
+    <li>
+      <a href="/tags/" style="text-decoration: none; color: #007acc; font-weight: 500;">
+        Tags
+      </a>
+    </li>
+  
+    <li>
+      <a href="/terms/" style="text-decoration: none; color: #007acc; font-weight: 500;">
+        Terms
+      </a>
+    </li>
+  
+    <li>
+      <a href="/privacy/" style="text-decoration: none; color: #007acc; font-weight: 500;">
+        Privacy
+      </a>
+    </li>
+  
+    <li>
+      <a href="/archive/" style="text-decoration: none; color: #007acc; font-weight: 500;">
+        Archive
+      </a>
+    </li>
+  
+</ul>
+
+  </nav>
+</header>
+
+
+  <main class="site-content" style="flex: 1;">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+
+<article class="page">
+  <header class="page__header">
+    <h1 class="page__title">🚀 From Zero to Live: Setting Up My Jekyll Blog with GitHub Pages and AWS Route 53</h1>
+    
+    <p class="page__excerpt">How I built and deployed a pro-grade Jekyll blog in 48 hours with GitHub Pages and AWS Route 53.</p>
+    
+  </header>
+
+  <div class="page__content">
+    <p>In 48 hours I went from <strong>zero</strong> to a fully deployed, professional blog at <a href="https://datainsidedata.com">datainsidedata.com</a>.</p>
+
+<p>This wasn’t just a “hello world” experiment. I wanted a lean, pro-grade stack for my LLC using:</p>
+
+<p>✔ Jekyll (static site generator)<br />
+✔ GitHub Pages (free hosting)<br />
+✔ AWS Route 53 (custom domain + DNS)</p>
+
+<p>This post + video will show you exactly how I did it, what I learned, and how you can replicate (or improve) the setup for your business, nonprofit, or personal brand.</p>
+
+<p>🎥 <strong>Watch it here:</strong> <em>[Embed your video link]</em></p>
+
+<h2 id="️-my-stack">🛠️ My Stack</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tool</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jekyll</td>
+      <td>Static site generator</td>
+    </tr>
+    <tr>
+      <td>GitHub Pages</td>
+      <td>Free hosting for site</td>
+    </tr>
+    <tr>
+      <td>AWS Route 53</td>
+      <td>DNS + custom domain</td>
+    </tr>
+    <tr>
+      <td>VS Code</td>
+      <td>Local development</td>
+    </tr>
+    <tr>
+      <td>datainsidedata.com</td>
+      <td>My custom domain</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="-why-jekyll-instead-of-just-htmlcssjs">💡 Why Jekyll Instead of Just HTML/CSS/JS?</h2>
+
+<p>When I started this, I asked myself: <em>“Why not just code a static site by hand?”</em></p>
+
+<p>Here’s why I chose Jekyll:</p>
+
+<h3 id="-1-built-for-blogs">🚀 1. Built for Blogs</h3>
+
+<p>Jekyll was literally designed for blogs. It supports:</p>
+
+<ul>
+  <li><strong>Markdown posts</strong></li>
+  <li>Categories &amp; tags out of the box</li>
+  <li>Auto-generated archive &amp; pagination</li>
+  <li>Clean permalinks like <code class="language-plaintext highlighter-rouge">/2025/07/12/why-jekyll.html</code></li>
+</ul>
+
+<p>With pure HTML/CSS/JS, I’d have to hand-code all of that.</p>
+
+<h3 id="-2-minimalist-and-professional">💎 2. Minimalist and Professional</h3>
+
+<p>Jekyll doesn’t need a heavy backend (no PHP, no databases).<br />
+It’s <strong>just static files</strong>—fast, secure, and deploys beautifully on GitHub Pages.</p>
+
+<h3 id="-3-gems-and-themes--less-reinventing-the-wheel">🧰 3. Gems and Themes = Less Reinventing the Wheel</h3>
+
+<ul>
+  <li>The <strong>Minimal Mistakes</strong> theme gave me a professional design instantly.</li>
+  <li>Gems like <code class="language-plaintext highlighter-rouge">jekyll-feed</code> and <code class="language-plaintext highlighter-rouge">jekyll-seo-tag</code> handle RSS feeds &amp; SEO for me.</li>
+</ul>
+
+<p>Pure HTML/CSS/JS? I’d be reinventing:<br />
+✔ Sitemap.xml<br />
+✔ RSS feed<br />
+✔ SEO metadata<br />
+✔ Responsive layouts</p>
+
+<h3 id="-4-one-command--whole-site-built">💨 4. One Command → Whole Site Built</h3>
+
+<p>Jekyll lets me run:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll build
+</code></pre></div></div>
+
+<p>…and it renders all posts, layouts, and assets into the <code class="language-plaintext highlighter-rouge">_site</code> folder, ready for deployment.</p>
+
+<p>In a pure static setup, I’d manually copy/paste and keep track of every link. 😬</p>
+
+<h2 id="-initial-setup-jekyll--minimal-mistakes-theme">📦 Initial Setup: Jekyll + Minimal Mistakes Theme</h2>
+
+<h3 id="1️⃣-install-ruby-bundler-and-jekyll">1️⃣ Install Ruby, Bundler, and Jekyll</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem <span class="nb">install </span>bundler jekyll
+</code></pre></div></div>
+
+<h3 id="2️⃣-create-a-new-jekyll-site">2️⃣ Create a new Jekyll site</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll new datainsidedata-website
+<span class="nb">cd </span>datainsidedata-website
+bundle <span class="nb">install</span>
+</code></pre></div></div>
+
+<h3 id="3️⃣-add-the-minimal-mistakes-theme-for-a-clean-professional-look">3️⃣ Add the Minimal Mistakes theme for a clean, professional look</h3>
+
+<h3 id="4️⃣-configure-_configyml">4️⃣ Configure <code class="language-plaintext highlighter-rouge">_config.yml</code></h3>
+
+<ul>
+  <li>Set site title, description, author info</li>
+  <li>Enable pagination &amp; pretty permalinks</li>
+  <li>Set up categories &amp; tags</li>
+</ul>
+
+<p>📂 <strong>Project Structure (before build):</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_data/
+_includes/
+_layouts/
+_pages/
+_posts/
+_site/  <span class="o">(</span>auto-generated by Jekyll build<span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="-custom-domain-with-github-pages--aws-route-53">🌐 Custom Domain with GitHub Pages + AWS Route 53</h2>
+
+<h3 id="-private--public-repo-workflow">🗂 Private + Public Repo Workflow</h3>
+
+<p>Since GitHub Pages doesn’t serve from private repos unless you pay for Pro:</p>
+
+<ol>
+  <li>Private repo: <code class="language-plaintext highlighter-rouge">did-site-private</code> (holds full Jekyll source)</li>
+  <li>Public repo: <code class="language-plaintext highlighter-rouge">did-site-public</code> (hosts built site for Pages)</li>
+</ol>
+
+<p>👨🏾‍💻 Local workflow:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Build site</span>
+bundle <span class="nb">exec </span>jekyll build
+
+<span class="c"># Push to public repo</span>
+<span class="nb">cd </span>_site
+git init
+git remote add origin https://github.com/dataeden/did-site-public.git
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Deploy"</span>
+git push <span class="nt">-u</span> origin main
+</code></pre></div></div>
+
+<h3 id="️-aws-route-53-dns-setup">🏷️ AWS Route 53 DNS Setup</h3>
+
+<p>✅ Add A records:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+</code></pre></div></div>
+
+<p>✅ Add a CNAME file in the public repo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>datainsidedata.com
+</code></pre></div></div>
+
+<p>✅ Verify domain with GitHub:<br />
+Add a TXT record in Route 53 like:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_github-pages-challenge.datainsidedata.com  TXT  <span class="s2">"abc123xyz456"</span>
+</code></pre></div></div>
+
+<p>✅ Enable HTTPS in GitHub Pages after TLS cert provision.</p>
+
+<h2 id="-sneak-peek-automating-with-github-actions-no-more-_site-pushes">⚡ Sneak Peek: Automating with GitHub Actions (No More _site Pushes!)</h2>
+
+<p>Here’s the workflow I’m planning:</p>
+
+<p>📂 <strong>.github/workflows/deploy.yml</strong></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Build and Deploy Jekyll Site</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">main</span>  <span class="c1"># Watch for changes in private repo</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build-deploy</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+
+    <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout private repo</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Setup Ruby + Jekyll</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ruby/setup-ruby@v1</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">ruby-version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.1'</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install dependencies</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">bundle install</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build site</span>
+      <span class="na">run</span><span class="pi">:</span> <span class="s">bundle exec jekyll build</span>
+
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy to public repo</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v3</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">github_token</span><span class="pi">:</span> <span class="s">$</span>
+        <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site</span>
+        <span class="na">publish_branch</span><span class="pi">:</span> <span class="s">main</span>
+        <span class="na">destination_repo</span><span class="pi">:</span> <span class="s">dataeden/did-site-public</span>
+</code></pre></div></div>
+
+<p>🎯 With this in place:</p>
+
+<ul>
+  <li>Push to <code class="language-plaintext highlighter-rouge">did-site-private</code></li>
+  <li>GitHub Actions auto-builds &amp; deploys to <code class="language-plaintext highlighter-rouge">did-site-public</code></li>
+  <li>No more manual <code class="language-plaintext highlighter-rouge">_site</code> pushes 🚀</li>
+</ul>
+
+<h2 id="-lessons-learned">🚨 Lessons Learned</h2>
+
+<p>💥 _pages folder pain: Jekyll didn’t respect links until I restructured pages.<br />
+🔥 Custom nav bar: Built my own in <code class="language-plaintext highlighter-rouge">bash _includes/header.html + _includes/nav.html.</code><br />
+🕒 DNS propagation: Patience and coffee are dev tools too.</p>
+
+<h2 id="-the-result">🎯 The Result</h2>
+
+<p>✅ Live at datainsidedata.com<br />
+✅ Clean navigation, custom logo, HTTPS-secured<br />
+✅ Learned Jekyll + DNS at a pro level</p>
+
+<h2 id="-whats-next">📝 What’s Next?</h2>
+
+<p>✔ Publish more posts (like this one!)<br />
+✔ Add Google Analytics<br />
+✔ Fully automate deploys with GitHub Actions<br />
+✔ Share more dev journey content</p>
+
+<h2 id="️-about-the-author">❤️ About the Author</h2>
+
+<p>🔥 I’m Fari, founder of Data Inside Data LLC.<br />
+Here I share tools, insights, and lessons from building cool things in tech &amp; data.</p>
+
+<p>📺 <em>Watch the full video walkthrough →</em> [Embed link here]</p>
+
+  </div>
+
+  
+</article>
+
+  </main>
+
+  <footer class="site-footer" style="background-color:#f8f9fa; padding: 1rem 0; text-align: center; border-top: 1px solid #e1e1e1;">
+  <p style="margin: 0; font-size: 0.9rem; color: #666;">
+    © 2025 Data Inside Data. All rights reserved.
+  </p>
+  <p style="margin: 0; font-size: 0.8rem; color: #999;">
+    Powered by <a href="https://jekyllrb.com" target="_blank" style="color:#007acc;">Jekyll</a>, 
+    <a href="https://pages.github.com" target="_blank" style="color:#007acc;">GitHub Pages</a>, and 
+    <a href="https://aws.amazon.com/route53/" target="_blank" style="color:#007acc;">AWS Route 53</a>.
+  </p>
+</footer>
+
+
+</body>
+</html>
