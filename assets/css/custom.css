@@ -1,0 +1,59 @@
+/* Footer Styling */
+.site-footer {
+  background: #f8f9fa;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #e1e1e1;
+}
+
+.site-footer a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Magazine Hero */
+.page__title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  color: #005f99;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Fancy Drop Cap */
+.page__content p:first-of-type::first-letter {
+  float: left;
+  font-size: 4rem;
+  line-height: 1;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #ff4500;
+}
+
+/* Pull Quotes */
+blockquote {
+  border-left: 4px solid #1e90ff;
+  margin: 1.5rem 0;
+  padding: 0.5rem 1rem;
+  font-style: italic;
+  background: #f9f9f9;
+}
+
+/* Images Hover Lift */
+.page__content img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+.page__content img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
