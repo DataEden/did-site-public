@@ -18,7 +18,7 @@ Explicit permission for certain uses may be granted at the sole discretion of th
 
 ## Trademarks
 
-“DataInsideData” and associated logos are trademarks of DataInsideData LLC. Unauthorized use of these trademarks is strictly prohibited and subject to legal action.
+“DataInsideData”, "Data Inside Data", and "datainsidedata.com" associated logos are trademarks of DataInsideData™ LLC. Unauthorized use of these trademarks is strictly prohibited and subject to legal action.
 
 ## Legal Jurisdiction
 
