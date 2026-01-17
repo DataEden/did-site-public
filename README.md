@@ -3,7 +3,7 @@
 
 # DataInsideData Website
 
-> **This repo is the compiled static output** for datainsidedata.com™.  
+> **This repo is the compiled static output** for [datainsidedata.com™](datainsidedata.com).  
 > **Edits here will be overwritten.** Make changes in **[DataEden/datainsidedata-website](https://github.com/DataEden/datainsidedata-website)**.
 
 This repository contains the static build of the [DataInsideData™ LLC website](https://datainsidedata.com).
