@@ -2,7 +2,7 @@
 
 © 2025 DataInsideData LLC. All Rights Reserved.
 
-This repository and its contents—including but not limited to all source code, configuration files, images, text content, and media—are the exclusive intellectual property of DataInsideData LLC ("the Company").
+This repository and its contents—including but not limited to all source code, configuration files, images, text content, and media—are the exclusive intellectual property of DataInsideData™ LLC ("the Company").
 
 ## Restrictions
 
@@ -18,7 +18,7 @@ Explicit permission for certain uses may be granted at the sole discretion of th
 
 ## Trademarks
 
-“DataInsideData”, "Data Inside Data", and "datainsidedata.com" associated logos are trademarks of DataInsideData™ LLC. Unauthorized use of these trademarks is strictly prohibited and subject to legal action.
+DataInsideData™, Data Inside Data™ and "[datainsidedata.com](datainsidedata.com)" associated logos are trademarks of DataInsideData™ LLC. Unauthorized use of these trademarks is strictly prohibited and subject to legal action.
 
 ## Legal Jurisdiction
 
