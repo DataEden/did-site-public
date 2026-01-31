@@ -1,0 +1,777 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Jekyll Build Notes: Layers 1–4 - Data Inside Data™</title>
+<meta name="description" content="A workshop-ready, layered guide to how DataInsideData.com was built and hardened on Minima—future-proofed for Minimal Mistakes.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Jekyll Build Notes: Layers 1–4">
+<meta property="og:url" content="https://datainsidedata.com/projects/jekyll-from-zero-to-production-layers-1-4/">
+
+
+  <meta property="og:description" content="A workshop-ready, layered guide to how DataInsideData.com was built and hardened on Minima—future-proofed for Minimal Mistakes.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2026-01-31T13:26:58+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/projects/jekyll-from-zero-to-production-layers-1-4/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/FuturisticBrand.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Jekyll Build Notes: Layers 1–4">
+    <meta itemprop="description" content="A workshop-ready, layered guide to how DataInsideData.com was built and hardened on Minima—future-proofed for Minimal Mistakes.">
+    <meta itemprop="datePublished" content="2026-01-31T13:26:58+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://datainsidedata.com/projects/jekyll-from-zero-to-production-layers-1-4/" itemprop="url">Jekyll Build Notes: Layers 1–4
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="jekyll-from-zero-to-production-minimafirst">Jekyll From Zero to Production (Minima‑first)</h2>
+
+<p><strong>Layers 1–4: Core mechanics → structure → navigation → production hardening</strong><br />
+<em>DataInsideData.com build notes (project-ready, workshop-friendly)</em></p>
+
+<blockquote>
+  <p><strong>Intent:</strong> This document captures the <strong>exact, repeatable process</strong> used to build DataInsideData.com on <strong>Minima</strong>, with <strong>safe overrides</strong> and <strong>production hygiene</strong>, while staying <strong>teachable</strong> and <strong>migration-friendly</strong> for a future move to <strong>Minimal Mistakes</strong>.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="executive-summary-what-you-get-by-following-this">Executive summary (what you get by following this)</h3>
+
+<p>By the end of Layer 4 you’ll have:</p>
+
+<ul>
+  <li>A clean <strong>local dev loop</strong> that matches production styling</li>
+  <li>Clear <strong>information architecture</strong> (header nav + footer utilities)</li>
+  <li>Safe, minimal <strong>theme overrides</strong> (footer/head + custom CSS)</li>
+  <li><strong>SEO + discovery endpoints</strong>: <code class="language-plaintext highlighter-rouge">/sitemap.xml</code>, <code class="language-plaintext highlighter-rouge">/feed.xml</code>, <code class="language-plaintext highlighter-rouge">/robots.txt</code></li>
+  <li><strong>Pagination</strong> that scales (and won’t surprise you later)</li>
+  <li>A <strong>branch/PR workflow</strong> that integrates with your private→public deploy pipeline (If you chose to go in that direction.)</li>
+</ul>
+
+<hr />
+
+<h2 id="layer-1--core-jekyll-mechanics">Layer 1 — Core Jekyll mechanics</h2>
+
+<h3 id="what-jekyll-is">What Jekyll is</h3>
+
+<p>Jekyll is a <strong>static site generator</strong>. It compiles content into <strong>static assets</strong>:</p>
+
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li>XML (feed/sitemap)</li>
+</ul>
+
+<p>There is no runtime database or request-time backend. Hosting becomes simple: serve static files.</p>
+
+<h3 id="the-local-build-loop">The local build loop</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install</span>           <span class="c"># only when Gemfile changes</span>
+bundle <span class="nb">exec </span>jekyll serve <span class="c"># execute build</span>
+</code></pre></div></div>
+
+<p>What <code class="language-plaintext highlighter-rouge">jekyll serve</code> does:</p>
+
+<ul>
+  <li>Builds the site into <code class="language-plaintext highlighter-rouge">_site/</code></li>
+  <li>Starts a local server (typically <code class="language-plaintext highlighter-rouge">http://localhost:4000</code>)</li>
+  <li>Watches for file changes and rebuilds automatically</li>
+</ul>
+
+<p><strong>Important:</strong> changing <code class="language-plaintext highlighter-rouge">_config.yml</code> requires a restart. That’s expected.</p>
+
+<h3 id="front-matter-why-it-exists">Front matter (why it exists)</h3>
+
+<p>Front matter connects <strong>content</strong> to <strong>structure</strong>. Without it, Jekyll may treat a file as a raw asset and skip layout/Liquid processing.</p>
+
+<p>Example listing page:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">home</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Posts</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/blog/</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="layer-2--structure-layouts-defaults-and-theme-resolution">Layer 2 — Structure, layouts, defaults, and “theme resolution”</h2>
+
+<h3 id="rendering-hierarchy-critical-concept">Rendering hierarchy (critical concept)</h3>
+
+<p>Jekyll resolves files in this order:</p>
+
+<ol>
+  <li><strong>Your repo</strong> (site source)</li>
+  <li><strong>Theme gem</strong> (Minima)</li>
+  <li><strong>Fallback behavior</strong></li>
+</ol>
+
+<p>If you create a file in your repo with the <strong>same path + filename</strong> as a theme file, <strong>your version wins</strong> automatically.</p>
+
+<h3 id="why-_includes-_layouts-_sass-may-be-missing">Why <code class="language-plaintext highlighter-rouge">_includes</code>, <code class="language-plaintext highlighter-rouge">_layouts</code>, <code class="language-plaintext highlighter-rouge">_sass</code> may be “missing”</h3>
+
+<p>When using a gem theme, those directories live inside the theme gem. You only create them when you need an override.</p>
+
+<p>This keeps your repo:</p>
+
+<ul>
+  <li>smaller</li>
+  <li>cleaner</li>
+  <li>upgrade-safe</li>
+</ul>
+
+<h3 id="defaults-in-_configyml-remove-repetition">Defaults in <code class="language-plaintext highlighter-rouge">_config.yml</code> (remove repetition)</h3>
+
+<p>Use defaults to prevent repeated front matter across many files:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">defaults</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">posts</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">pages</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">layout</span><span class="pi">:</span> <span class="s">page</span>
+</code></pre></div></div>
+
+<p><strong>Benefit:</strong> less copy/paste, fewer mistakes, easier scaling.</p>
+
+<hr />
+
+<h2 id="layer-3--pages-home-vs-blog-navigation">Layer 3 — Pages, home vs blog, navigation</h2>
+
+<h3 id="one-canonical-homepage">One canonical homepage</h3>
+
+<p>Your homepage is defined by <code class="language-plaintext highlighter-rouge">index.md</code> / <code class="language-plaintext highlighter-rouge">index.markdown</code> at <code class="language-plaintext highlighter-rouge">/</code>.</p>
+
+<p>Example:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">home</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>Rule:</p>
+<blockquote>
+  <p>One homepage. Avoid creating multiple pages that compete for <code class="language-plaintext highlighter-rouge">/</code>.</p>
+</blockquote>
+
+<h2 id="blog-index-page">Blog index page</h2>
+
+<p>Create a dedicated post listing page at <code class="language-plaintext highlighter-rouge">/blog/</code>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">home</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Posts</span>
+<span class="na">list_title</span><span class="pi">:</span> <span class="s">Recent &amp; relevant</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/blog/</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h2 id="navigation-control-minima">Navigation control (Minima)</h2>
+
+<p>Header navigation is controlled explicitly with <code class="language-plaintext highlighter-rouge">header_pages</code>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">header_pages</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">start-here.markdown</span>
+  <span class="pi">-</span> <span class="s">blog.markdown</span>
+  <span class="pi">-</span> <span class="s">projects/projects.markdown</span>
+  <span class="pi">-</span> <span class="s">about.markdown</span>
+  <span class="pi">-</span> <span class="s">contact/contact.markdown</span>
+</code></pre></div></div>
+
+<p>Notes:</p>
+
+<ul>
+  <li>In Minima, the site title links to <code class="language-plaintext highlighter-rouge">/</code> (so a separate “Home” item is optional).</li>
+  <li>Keep the header lean and move “utility links” into the footer.</li>
+</ul>
+
+<h2 id="first-safe-override-footer">First safe override: footer</h2>
+
+<p>First override introduced:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_includes/footer.html
+</code></pre></div></div>
+
+<p>Why footer is a safe first override:</p>
+
+<ul>
+  <li>low coupling</li>
+  <li>easy to test visually</li>
+  <li>minimal risk during upgrades</li>
+</ul>
+
+<p>Rule of thumb:</p>
+<blockquote>
+  <p>Override edges (footer/meta) before the spine (header/layouts).</p>
+</blockquote>
+
+<hr />
+
+<h2 id="layer-4--business--production-hardening-minima--futureproof">Layer 4 — Business + production hardening (Minima → future‑proof)</h2>
+
+<h3 id="40-goals">4.0 Goals</h3>
+
+<p>Layer 4 makes the site:</p>
+
+<ul>
+  <li>business-friendly (clear nav + legal links)</li>
+  <li>production-friendly (SEO, sitemap, robots)</li>
+  <li>maintainable (minimal overrides)</li>
+  <li>upgrade-friendly (future Minimal Mistakes)</li>
+</ul>
+
+<h2 id="41-information-architecture">4.1 Information architecture</h2>
+
+<h3 id="header-nav-primary-actions">Header nav (primary actions)</h3>
+
+<p>Keep header nav lean:</p>
+
+<ul>
+  <li>Posts</li>
+  <li>Projects</li>
+  <li>About</li>
+  <li>Contact</li>
+</ul>
+
+<h3 id="footer-utility--legal">Footer (utility + legal)</h3>
+
+<p>Move these to footer:</p>
+
+<ul>
+  <li>Archive</li>
+  <li>Sitemap</li>
+  <li>RSS</li>
+  <li>Privacy Policy</li>
+  <li>Terms of Use</li>
+</ul>
+
+<p>Why:</p>
+
+<ul>
+  <li>archive/sitemap/RSS are secondary</li>
+  <li>legal links belong in the footer on most professional sites</li>
+</ul>
+
+<h2 id="42-plugins-seo--discovery">4.2 Plugins (SEO + discovery)</h2>
+
+<p>Enable:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-feed</span>
+  <span class="pi">-</span> <span class="s">jekyll-seo-tag</span>
+  <span class="pi">-</span> <span class="s">jekyll-sitemap</span>
+</code></pre></div></div>
+
+<p>What they do:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">jekyll-feed</code> → <code class="language-plaintext highlighter-rouge">/feed.xml</code></li>
+  <li><code class="language-plaintext highlighter-rouge">jekyll-seo-tag</code> → consistent SEO/meta via <code class="language-plaintext highlighter-rouge">% seo %</code></li>
+  <li><code class="language-plaintext highlighter-rouge">jekyll-sitemap</code> → <code class="language-plaintext highlighter-rouge">/sitemap.xml</code></li>
+</ul>
+
+<h2 id="43-excerpts--listing-pages">4.3 Excerpts + listing pages</h2>
+
+<p>Show excerpts on listing pages:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">minima</span><span class="pi">:</span>
+  <span class="na">show_excerpts</span><span class="pi">:</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<p>Then add per-post front matter excerpts:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">One</span><span class="nv"> </span><span class="s">sentence</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">sells</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">post."</span>
+</code></pre></div></div>
+
+<p>Rule of thumb (DID style):</p>
+
+<ul>
+  <li>1 sentence</li>
+  <li>clear value</li>
+  <li>~120–180 characters</li>
+</ul>
+
+<h2 id="44-pagination-scales-when-content-grows">4.4 Pagination (scales when content grows)</h2>
+
+<p>Config:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">paginate</span><span class="pi">:</span> <span class="m">5</span>
+<span class="na">paginate_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/blog/page:num/"</span>
+</code></pre></div></div>
+
+<p>Pagination typically requires <code class="language-plaintext highlighter-rouge">jekyll-paginate</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Gemfile</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"jekyll-paginate"</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">_config.ym</code></p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-paginate</span>
+</code></pre></div></div>
+
+<h2 id="45-safe-head--custom-css-strategy">4.5 Safe head + custom CSS strategy</h2>
+
+<p>Override:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_includes/head.html
+</code></pre></div></div>
+
+<p>and load custom CSS after Minima’s main.css:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"/assets/main.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"/assets/css/custom.css"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>Custom CSS file:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">assets</span><span class="o">/</span><span class="nt">css</span><span class="o">/</span><span class="nt">custom</span><span class="nc">.css</span>
+</code></pre></div></div>
+
+<p>Principle:</p>
+<blockquote>
+  <p>Don’t fork the theme. Layer over it.</p>
+</blockquote>
+
+<h2 id="46-robotstxt--verifications">4.6 robots.txt + verifications</h2>
+
+<p>Add <code class="language-plaintext highlighter-rouge">robots.txt</code> at repo root:</p>
+
+<pre><code class="language-txt">User-agent: *
+Allow: /
+
+Sitemap: https://datainsidedata.com/sitemap.xml
+</code></pre>
+
+<p>Verify locally:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">/sitemap.xml</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/feed.xml</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/robots.txt</code></li>
+</ul>
+
+<h2 id="47-url-stability-renames--redirects">4.7 URL stability: renames + redirects</h2>
+
+<p>If you rename a post after it’s been generated or shared, use <code class="language-plaintext highlighter-rouge">redirect_from</code>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">redirect_from</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">/blog/2026/01/11/old-slug.html</span>
+  <span class="pi">-</span> <span class="s">/2026/01/11/old-slug.html</span>
+</code></pre></div></div>
+
+<p>Optional: add <code class="language-plaintext highlighter-rouge">jekyll-redirect-from</code> for safer refactors:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">jekyll-redirect-from</span>
+</code></pre></div></div>
+
+<h2 id="48-standardize-permalinks-recommended-next">4.8 Standardize permalinks (recommended next)</h2>
+
+<p>To make all post URLs consistently live under <code class="language-plaintext highlighter-rouge">/blog/</code>, add:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">permalink</span><span class="pi">:</span> <span class="s">/blog/:year/:month/:day/:title:output_ext</span>
+</code></pre></div></div>
+
+<p>This reduces accidental 404s and keeps URLs predictable.</p>
+
+<hr />
+
+<h2 id="repo-flex-plan-branchpr-workflow-with-deploy-confidence">Repo “Flex” plan: branch/PR workflow with deploy confidence</h2>
+
+<h3 id="what-youre-protecting">What you’re protecting</h3>
+
+<ul>
+  <li>Private repo: <strong>source of truth</strong> (Jekyll source)</li>
+  <li>Public repo: <strong>compiled output</strong> only</li>
+  <li>GitHub Actions builds private → pushes into public → Pages serves from <code class="language-plaintext highlighter-rouge">gh-pages</code></li>
+</ul>
+
+<h3 id="safe-pr-workflow">Safe PR workflow</h3>
+
+<ol>
+  <li>Create a branch: <code class="language-plaintext highlighter-rouge">feat/*</code> or <code class="language-plaintext highlighter-rouge">chore/*</code></li>
+  <li>Commit small, logical changes</li>
+  <li>Open PR (describe what/why + local test notes)</li>
+  <li>Merge to main</li>
+  <li>CI builds + deploys automatically</li>
+</ol>
+
+<h3 id="pre-merge-checklist">Pre-merge checklist</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">bundle exec jekyll clean &amp;&amp; bundle exec jekyll serve</code></li>
+  <li>verify:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">/</code> home works</li>
+      <li><code class="language-plaintext highlighter-rouge">/blog/</code> and <code class="language-plaintext highlighter-rouge">/blog/page2/</code> (if applicable)</li>
+      <li><code class="language-plaintext highlighter-rouge">/archive/</code></li>
+      <li><code class="language-plaintext highlighter-rouge">/sitemap.xml</code>, <code class="language-plaintext highlighter-rouge">/feed.xml</code>, <code class="language-plaintext highlighter-rouge">/robots.txt</code></li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Data Inside Data™</p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-01-31T13:26:58+00:00">January 31, 2026</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/projects/jekyll-from-zero-to-production/" class="pagination--pager" title="Jekyll From Zero to Production (Minima-first)">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer" role="contentinfo">
+  <div class="page__footer-inner">
+    <div class="page__footer-grid">
+
+      <!-- LEFT: Title + email + quick links -->
+      <div class="page__footer-col">
+        <h2 class="page__footer-title">Data Inside Data™</h2>
+
+        
+          <p class="page__footer-email">
+            <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a>
+          </p>
+        
+
+    <ul class="page__footer-quicklinks">
+     
+    <li>
+      <a href="/archive/">Archive</a>
+    </li>
+        
+    <li>
+      <a href="/sitemap.xml">Sitemap</a>
+    </li>
+        
+    <li>
+      <a href="/feed.xml">RSS</a>
+    </li>
+        
+     </ul>
+
+      </div>
+
+      <!-- MIDDLE: Social links (MM style) -->
+      <div class="page__footer-col">
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            
+              
+                
+                  <li>
+                    <a href="https://github.com/dataeden" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="mailto:contact@datainsidedata.com" rel="nofollow noopener noreferrer">
+                      <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="https://www.linkedin.com/" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+                
+              
+            
+
+            
+              <li>
+                <a href="/feed.xml">
+                  <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+                  <span class="label">Feed</span>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Description -->
+      <div class="page__footer-col">
+        
+          <p class="page__footer-desc">The Tech Hands blog: insights, tools, and stories from DataInsideData.</p>
+        
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar (your DID style) -->
+    <div class="footer-bottom">
+      <p class="footer-bottom__copyright">
+        © 2026 Data Inside Data™. All rights reserved.
+      </p>
+
+      <p class="footer-bottom__powered">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>,
+        <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>, and
+        <a href="https://aws.amazon.com/route53/" target="_blank" rel="noopener">AWS Route 53</a>.
+      </p>
+
+      <p class="footer-bottom__legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-bottom__sep">•</span>
+        <a href="/terms/">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>
