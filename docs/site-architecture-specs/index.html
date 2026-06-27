@@ -1,0 +1,1030 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Data Inside Data™</title>
+<meta name="description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Data Inside Data™">
+<meta property="og:url" content="https://datainsidedata.com/docs/site-architecture-specs/">
+
+
+  <meta property="og:description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/docs/site-architecture-specs/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+<link rel="icon" type="image/png" href="/assets/images/imgs/site-icon-512.png">
+
+<link rel="icon" type="image/x-icon" href="/assets/images/imgs/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/imgs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/imgs/favicon-16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/imgs/apple-touch-icon-180.png">
+ 
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/FuturisticBrand.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="datainsidedata-blog--site--system-architecture--design-specification">DataInsideData Blog — Site &amp; System Architecture &amp; Design Specification</h1>
+
+<h2 id="1-high-level-system-architecture">1) High-Level System Architecture</h2>
+
+<pre><code class="language-mermaid">flowchart TB
+  U[Site Owner / Contributor] --&gt; C[Content Sources]
+
+  subgraph Content_Layer[Content Layer]
+    P[_posts]
+    PR[_projects]
+    H[_how_tos]
+    F[_fixes]
+    SP[Standalone Pages]
+  end
+
+  subgraph Config_Layer[Configuration Layer]
+    CFG[_config.yml]
+    NAV[_data/navigation.yml]
+  end
+
+  subgraph Presentation_Layer[Presentation Layer]
+    MM[Minimal Mistakes Theme]
+    INC[_includes]
+    SCSS[assets/css/main.scss]
+    CUSTOM[_sass/minimal-mistakes/_custom.scss]
+    JS[assets/js/mermaid-init.js]
+    IMG[assets/images]
+  end
+
+  C --&gt; P
+  C --&gt; PR
+  C --&gt; H
+  C --&gt; F
+  C --&gt; SP
+
+  P --&gt; J[Jekyll Build Engine]
+  PR --&gt; J
+  H --&gt; J
+  F --&gt; J
+  SP --&gt; J
+
+  CFG --&gt; J
+  NAV --&gt; J
+  MM --&gt; J
+  INC --&gt; J
+  SCSS --&gt; J
+  CUSTOM --&gt; J
+  JS --&gt; J
+  IMG --&gt; J
+
+  J --&gt; SITE[_site Compiled Static Site]
+
+  SITE --&gt; GA[GitHub Actions Deploy Workflow]
+  GA --&gt; PUB[Public Repo: did-site-public]
+  PUB --&gt; GHP[GitHub Pages / gh-pages]
+  GHP --&gt; DNS[Route 53 + datainsidedata.com]
+  DNS --&gt; V[Site Visitor]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>The Site is organized into clear layers: content, configuration, presentation, build, and deployment.</li>
+  <li>Jekyll compiles all markdown, config, theme logic, includes, styles, and scripts into _site.</li>
+  <li>Deployment is separated from authoring through the two-repo strategy (separation of concerns).</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This is the best “executive view” of the system.</li>
+  <li>It helps future contributors understand where content lives versus how the site is rendered and shipped.</li>
+</ul>
+
+<h2 id="2-public-site-map--navigation-flow">2) Public Site Map / Navigation Flow</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  HOME[Start Here /]
+  BLOG[Posts /blog/]
+  PROJECTS[Projects /projects/]
+  HOWTOS[How Tos /how-tos/]
+  FIXES[Fixes /fixes/]
+  ABOUT[About /about/]
+  CONTACT[Contact /contact/]
+  ARCHIVE[Archive /archive/]
+  PRIVACY[Privacy /privacy/]
+  TERMS[Terms /terms/]
+  NOTFOUND[404 Page]
+
+  HOME --&gt; BLOG
+  HOME --&gt; PROJECTS
+  HOME --&gt; HOWTOS
+  HOME --&gt; FIXES
+  HOME --&gt; ABOUT
+  HOME --&gt; CONTACT
+
+  BLOG --&gt; ARCHIVE
+  BLOG --&gt; PRIVACY
+  BLOG --&gt; TERMS
+
+  PROJECTS --&gt; PROJECT_DETAIL[Project Detail Pages]
+  HOWTOS --&gt; HOWTO_DETAIL[How-To Detail Pages]
+  FIXES --&gt; FIX_DETAIL[Fix Detail Pages]
+  BLOG --&gt; POST_DETAIL[Post Detail Pages]
+
+  ARCHIVE --&gt; POST_DETAIL
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>The homepage is the landing page, while /blog/ is the posts hub.</li>
+  <li>Collections each have a hub page and then detail pages underneath.</li>
+  <li>Legal and utility pages support the site but are not primary discovery hubs.
+    <ul>
+      <li>they are placed on the footer and the footer-bottom.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This is the visitor-facing navigation model.</li>
+  <li>It is useful for both UX planning and contributor onboarding.</li>
+</ul>
+
+<h2 id="3-collection-architecture">3) Collection Architecture</h2>
+
+<pre><code class="language-mermaid">flowchart LR
+  POSTS_SRC[_posts] --&gt; POSTS_HUB[/blog/]
+  POSTS_SRC --&gt; POST_PAGES[Blog Post Pages]
+
+  PROJECTS_SRC[_projects] --&gt; PROJECTS_HUB[/projects/]
+  PROJECTS_SRC --&gt; PROJECT_PAGES[Project Pages]
+
+  HOWTOS_SRC[_how_tos] --&gt; HOWTOS_HUB[/how-tos/]
+  HOWTOS_SRC --&gt; HOWTO_PAGES[How-To Pages]
+
+  FIXES_SRC[_fixes] --&gt; FIXES_HUB[/fixes/]
+  FIXES_SRC --&gt; FIX_PAGES[Fix Pages]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>Each collection has a source folder and a public-facing hub.</li>
+  <li>The hub and the item pages are separate concepts.</li>
+  <li>Jekyll generates item pages from collection entries.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This makes it easier to explain where to place new content.</li>
+  <li>It also helps maintain clean boundaries between content types.</li>
+</ul>
+
+<h2 id="4-standalone-page-architecture">4) Standalone Page Architecture</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  ROOT[Standalone Pages]
+
+  ROOT --&gt; START[Start Here /]
+  ROOT --&gt; ABOUT[About /about/]
+  ROOT --&gt; CONTACT[Contact /contact/]
+  ROOT --&gt; ARCHIVE[Archive /archive/]
+  ROOT --&gt; PRIVACY[Privacy /privacy/]
+  ROOT --&gt; TERMS[Terms /terms/]
+  ROOT --&gt; ERR[404 Page]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>These pages are not part of collections.</li>
+  <li>They serve either informational, navigational, legal, or utility purposes.</li>
+  <li>They are managed as individual pages rather than repeated content patterns.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This helps separate “site structure pages” from “content publishing pages.”</li>
+  <li>It is especially useful for future staff and contributors.</li>
+</ul>
+
+<h2 id="5-section-navigation-diagram">5) Section Navigation Diagram</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  MAIN[Main Navigation]
+
+  MAIN --&gt; START[Start Here]
+  MAIN --&gt; POSTS[Posts]
+  MAIN --&gt; PROJECTS[Projects]
+  MAIN --&gt; HOWTOS[How Tos]
+  MAIN --&gt; FIXES[Fixes]
+  MAIN --&gt; ABOUT[About]
+  MAIN --&gt; CONTACT[Contact]
+
+  HOWTOS --&gt; AWS[AWS]
+  HOWTOS --&gt; GITHUB[GitHub]
+  HOWTOS --&gt; WINDOWS[Windows]
+
+  FIXES --&gt; CONDA[Conda]
+  FIXES --&gt; JEKYLL[Jekyll]
+  FIXES --&gt; PYTHON[Python]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>The primary top-level nav is concise and brand-friendly.</li>
+  <li>The secondary navs organize How Tos and Fixes by topic families.</li>
+  <li>Navigation is intentionally layered rather than flat.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This gives contributors a quick mental model of site taxonomy.</li>
+  <li>It also helps spot future expansion points.</li>
+</ul>
+
+<h2 id="6-rendering--theme-dependency-diagram">6) Rendering / Theme Dependency Diagram</h2>
+
+<pre><code class="language-mermaid">flowchart TB
+  PAGE[Markdown Page or &lt;/br&gt;Collection Item] --&gt; FM[Front Matter]
+  FM --&gt; LAYOUT[Minimal Mistakes Layout]
+  LAYOUT --&gt; INC[_includes]
+
+  INC --&gt; FOOTER[footer.html Override]
+  INC --&gt; GHPROJ[github-project.html]
+  INC --&gt; GHREADME[github-readme.html]
+
+  SCSS_ENTRY[assets/css/main.scss] --&gt; MM_SKIN[MM Skin Import]
+  SCSS_ENTRY --&gt; MM_THEME[Minimal Mistakes &lt;/br&gt;Theme Import]
+  SCSS_ENTRY --&gt; CUSTOM_SCSS[_sass/minimal-mistakes/_custom.scss]
+
+  JS_INIT[assets/js/mermaid-init.js] --&gt; MERMAID[Mermaid Rendering]
+
+  LAYOUT --&gt; OUTPUT[Rendered HTML]
+  FOOTER --&gt; OUTPUT
+  GHPROJ --&gt; OUTPUT
+  GHREADME --&gt; OUTPUT
+  CUSTOM_SCSS --&gt; OUTPUT
+  MERMAID --&gt; OUTPUT
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>Minimal Mistakes provides layout structure.</li>
+  <li>local includes extend the theme without replacing the whole layout system.</li>
+  <li>Styling flows through main.scss into MM imports and the custom overrides.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This is the clearest view of how customization layer sits on top of the theme.</li>
+  <li>It makes future debugging much easier.</li>
+</ul>
+
+<h2 id="7-content-publishing-flow">7) Content Publishing Flow</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  AUTHOR[Write Markdown Content] --&gt; FRONTMATTER[Add Front Matter]
+  FRONTMATTER --&gt; TYPE{Content Type?}
+
+  TYPE --&gt;|Post| POSTS[_posts]
+  TYPE --&gt;|Project| PROJECTS[_projects]
+  TYPE --&gt;|How-To| HOWTOS[_how_tos]
+  TYPE --&gt;|Fix| FIXES[_fixes]
+  TYPE --&gt;|Standalone| PAGES[Standalone Page]
+
+  POSTS --&gt; BUILD[Jekyll Build]
+  PROJECTS --&gt; BUILD
+  HOWTOS --&gt; BUILD
+  FIXES --&gt; BUILD
+  PAGES --&gt; BUILD
+
+  BUILD --&gt; HTML[Generated HTML in _site]
+  HTML --&gt; DEPLOY[Deployment Pipeline]
+  DEPLOY --&gt; LIVE[Live Website]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>All content types follow the same lifecycle: write, classify, build, deploy.</li>
+  <li>Front matter is the key control point for layout and metadata.</li>
+  <li>Jekyll normalizes everything into static output.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This is best contributor-facing authoring workflow diagram.</li>
+  <li>It supports SDLC and content governance.</li>
+</ul>
+
+<h2 id="8-deployment-flow--two-repo-strategy">8) Deployment Flow — Two Repo Strategy</h2>
+
+<pre><code class="language-mermaid">flowchart TB
+  SRC[Private Source Repo] --&gt; PUSH[Push to main]
+  PUSH --&gt; ACTIONS[GitHub Actions Workflow]
+  ACTIONS --&gt; BUILD[Jekyll Production Build]
+  BUILD --&gt; CNAME[Write CNAME to _site]
+  CNAME --&gt; VERIFY[Sanity Checks]
+  VERIFY --&gt; PUBLISH[Push _site to Public Repo]
+  PUBLISH --&gt; PUBLIC[Public Repo: did-site-public]
+  PUBLIC --&gt; GHPAGES[gh-pages Branch]
+  GHPAGES --&gt; DOMAIN[datainsidedata.com via Route 53]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>Source authoring and public hosting are intentionally separated.</li>
+  <li>GitHub Actions compiles the site and publishes only the built artifact.</li>
+  <li>The public repo acts as the serving layer rather than the authoring layer.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This is a strong professional deployment architecture.</li>
+  <li>It reduces accidental exposure of source-only material and keeps hosting clean.</li>
+</ul>
+
+<h2 id="9-public-vs-internal-workspace-diagram">9) Public vs Internal Workspace Diagram</h2>
+
+<pre><code class="language-mermaid">flowchart TB
+  WORKSPACE[Project Workspace]
+
+  WORKSPACE --&gt; PUBLIC[Public Build Inputs]
+  WORKSPACE --&gt; INTERNAL[Internal / Non-Build Assets]
+
+  PUBLIC --&gt; POSTS[_posts]
+  PUBLIC --&gt; PROJECTS[_projects]
+  PUBLIC --&gt; HOWTOS[_how_tos]
+  PUBLIC --&gt; FIXES[_fixes]
+  PUBLIC --&gt; PAGES[Standalone Pages]
+  PUBLIC --&gt; CONFIG[_config.yml]
+  PUBLIC --&gt; NAV[_data/navigation.yml]
+  PUBLIC --&gt; INCLUDES[_includes]
+  PUBLIC --&gt; STYLES[SCSS/CSS/JS]
+  PUBLIC --&gt; IMAGES[Public Assets]
+
+  INTERNAL --&gt; DRAFTS[_drafts]
+  INTERNAL --&gt; DOCS[docs]
+  INTERNAL --&gt; RAW[raw/source folders]
+  INTERNAL --&gt; BACKUPS[backup files]
+  INTERNAL --&gt; LOCALONLY[ignored local artifacts]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>Not everything in your repo/workspace is part of the public site.</li>
+  <li>Internal folders support drafting, documentation, and source preservation.</li>
+  <li>Build inputs and maintainer-only artifacts should stay conceptually separate.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This helps contributors avoid touching the wrong areas.</li>
+  <li>It also supports cleaner repo hygiene and long-term maintainability.</li>
+</ul>
+
+<h2 id="10-generated-pages--utility-architecture">10) Generated Pages / Utility Architecture</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  SITE[Jekyll Site Build] --&gt; FEED[feed.xml]
+  SITE --&gt; SITEMAP[sitemap.xml]
+  SITE --&gt; ROBOTS[robots.txt]
+  SITE --&gt; PAGINATION[Paginated Blog Pages]
+  SITE --&gt; ERR[404 Page]
+  SITE --&gt; ARCHIVE[Archive Page]
+  SITE --&gt; SEARCH[Lunr Search Index]
+  SITE --&gt; TAGS[Future Tags Page]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>Some important site outputs are generated or utility-oriented.</li>
+  <li>These pages support discovery, navigation, crawling, and user recovery.</li>
+  <li>The future tags page fits naturally into this supporting architecture.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This is key for SEO, findability, and content operations.</li>
+  <li>It also shows that the site is more than a collection of markdown pages.</li>
+</ul>
+
+<h2 id="11-future-tags-architecture">11) Future Tags Architecture</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  POSTS[Blog Posts] --&gt; TAGS_META[Tags in Front Matter]
+  TAGS_META --&gt; TAGS_INDEX[/tags/]
+  TAGS_INDEX --&gt; TAG_GROUPS[Grouped Tag Sections]
+  TAG_GROUPS --&gt; RELATED_POSTS[Linked Post Lists]
+  ARCHIVE[/archive/] --&gt; TAGS_INDEX
+  BLOG[/blog/] --&gt; TAGS_INDEX
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>Posts declare tags in front matter.</li>
+  <li>A /tags/ page can act as a taxonomy index.</li>
+  <li>That page can connect back into blog discovery and archive browsing.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This is the cleanest MM-friendly way to improve content discoverability.</li>
+  <li>It supports internal linking, topical clustering, and better browsing behavior.</li>
+</ul>
+
+<p><strong>Notes</strong></p>
+
+<ul>
+  <li>Use a master /tags/ page with grouped sections first.</li>
+  <li>Later, if needed, expand toward more advanced tag archive behavior.</li>
+</ul>
+
+<h2 id="12-github-project-embed-flow">12) GitHub Project Embed Flow</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  PROJECT_PAGE[Project Page] --&gt; INCLUDE[github-project.html Include]
+  INCLUDE --&gt; API[GitHub Repo API]
+  INCLUDE --&gt; README_RAW[Raw README URL]
+  README_RAW --&gt; MARKED[marked.js Markdown Parser]
+  API --&gt; META[Repo Metadata Rendered]
+  MARKED --&gt; README_HTML[README Rendered in Page]
+  META --&gt; FINAL[Enhanced Project Presentation]
+  README_HTML --&gt; FINAL
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>Your project pages can dynamically enrich themselves with GitHub data.</li>
+  <li>Repo metadata and README content are fetched separately.</li>
+  <li>The rendered result becomes a richer project showcase page.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This is a strong portfolio feature.</li>
+  <li>It also documents a custom behavior future contributors would not know from theme defaults alone.</li>
+</ul>
+
+<h1 id="13-analytics--observability-architecture">13) Analytics &amp; Observability Architecture</h1>
+
+<pre><code class="language-mermaid">flowchart TB
+  VISITOR[Site Visitor] --&gt; SITE[datainsidedata.com]
+
+  SITE --&gt; SCRIPT[Google gtag Script]
+
+  SCRIPT --&gt; GA4[Google Analytics Property]
+
+  GA4 --&gt; DASH[Analytics Dashboard]
+
+  DASH --&gt; INSIGHTS[Traffic + Behavior Insights]
+</code></pre>
+
+<p><strong>What this diagram shows</strong></p>
+
+<ul>
+  <li>When a visitor loads a page, the gtag script runs in the browser.</li>
+  <li>The script sends pageview and event data to the Google Analytics property.</li>
+  <li>The analytics dashboard aggregates that telemetry for reporting.</li>
+</ul>
+
+<p><strong>Why it matters</strong></p>
+
+<ul>
+  <li>This provides observability into how the site is used.</li>
+  <li>It supports decisions about content strategy, SEO performance, and site navigation.</li>
+</ul>
+
+<h2 id="configuration-architecture-analytics">Configuration Architecture (Analytics)</h2>
+
+<p>The _config.yml entry is the control point:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>analytics:
+  provider: <span class="s2">"google-gtag"</span>
+  google:
+    tracking_id: <span class="s2">"G-XXXXXXX"</span>
+    anonymize_ip: <span class="nb">true</span>
+</code></pre></div></div>
+
+<p><strong>What this configuration does</strong></p>
+
+<ul>
+  <li>
+    <p>provider: <code class="language-plaintext highlighter-rouge">google-gtag</code>
+Enables the <code class="language-plaintext highlighter-rouge">GA4</code> tracking integration built into Minimal Mistakes.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">tracking_id</code>
+Connects the site to your specific Google Analytics property.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">anonymize_ip: true</code>
+Enables IP anonymization for privacy compliance.</p>
+  </li>
+</ul>
+
+<p><strong>How Jekyll activates analytics</strong></p>
+
+<ul>
+  <li>This part is important for the architecture explanation.</li>
+</ul>
+
+<p>DID’s GitHub Actions workflow sets:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">env</span><span class="pi">:</span>
+  <span class="na">JEKYLL_ENV</span><span class="pi">:</span> <span class="s">production</span>
+</code></pre></div></div>
+
+<p>During build:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">bundle exec jekyll build</span>
+</code></pre></div></div>
+
+<p><strong>Minimal Mistakes only injects analytics scripts when</strong>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">JEKYLL_ENV == production</span>
+</code></pre></div></div>
+
+<h2 id="14-flow-chart">14) Flow Chart</h2>
+
+<pre><code class="language-mermaid">flowchart TD
+  CONFIG[_config.yml &lt;br/&gt;analytics settings] --&gt; BUILD[Jekyll Build]
+
+  BUILD --&gt; CHECK{JEKYLL_ENV == production?}
+
+  CHECK --&gt;|Yes| INJECT[Inject gtag Script]
+  CHECK --&gt;|No| SKIP[Skip Analytics Script]
+
+  INJECT --&gt; SITE[Compiled Static Site]
+  SITE --&gt; VISITOR[Visitor Browser]
+
+  VISITOR --&gt; GA4[Google Analytics]
+</code></pre>
+
+<p><strong>Why this is important</strong></p>
+
+<ul>
+  <li>Analytics does not run during local development</li>
+  <li>It only runs in production builds</li>
+  <li>This prevents test traffic from polluting metrics</li>
+</ul>
+
+<p>That is exactly how production analytics behaves in an enterprise environment.</p>
+
+<h2 id="analytics--telemetry">Analytics &amp; Telemetry</h2>
+
+<p>The site integrates Google Analytics via the Minimal Mistakes google-gtag provider.
+Tracking is configured in _config.yml and injected into the site during production builds.</p>
+
+<p>Analytics scripts are only included when the environment variable JEKYLL_ENV=production is set. This ensures development and preview builds do not send telemetry data.</p>
+
+<p><strong>Collected analytics data includes</strong>:</p>
+
+<ul>
+  <li>page views</li>
+  <li>traffic sources</li>
+  <li>geographic distribution</li>
+  <li>device types</li>
+  <li>user navigation paths</li>
+  <li>IP anonymization is enabled for privacy compliance.</li>
+</ul>
+
+<h2 id="15-small-pro-level-improvement-optional">15) Small pro-level improvement (optional)</h2>
+
+<p>Later add an Event Tracking layer.</p>
+
+<p>Example events:</p>
+
+<ul>
+  <li>project page views</li>
+  <li>GitHub repo clicks</li>
+  <li>outbound link clicks</li>
+  <li>tutorial completion</li>
+</ul>
+
+<p><strong>Architecture addition</strong>:</p>
+
+<pre><code class="language-mermaid">flowchart LR
+  USER --&gt; PAGE[Project Page]
+  PAGE --&gt; EVENT[Custom Event]
+  EVENT --&gt; GA4[Google Analytics Events]
+</code></pre>
+
+<p>This turns analytics from passive measurement into product insight.</p>
+
+<p>The site now includes all major production-grade layers:</p>
+
+<ul>
+  <li>content model</li>
+  <li>presentation framework</li>
+  <li>CI/CD pipeline</li>
+  <li>custom component system</li>
+  <li>analytics telemetry</li>
+  <li>SEO infrastructure</li>
+</ul>
+
+<p>That’s a very complete architecture for a modern static site.</p>
+
+<h2 id="positions-for-diagrams-in-the-document">Positions for diagrams in the document</h2>
+
+<p>Order:</p>
+
+<ul>
+  <li>System Overview</li>
+  <li>Public Site Architecture</li>
+  <li>Content Architecture</li>
+  <li>Rendering / Theme Architecture</li>
+  <li>Publishing Workflow</li>
+  <li>Deployment Architecture</li>
+  <li>Analytics &amp; Observability</li>
+  <li>SEO / Discovery Systems</li>
+  <li>Future Enhancements</li>
+</ul>
+
+<p><strong>Data Inside Data™.</strong></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer" role="contentinfo">
+  <div class="page__footer-inner">
+    <div class="page__footer-grid">
+
+      <!-- LEFT: Title + email + quick links -->
+      <div class="page__footer-col">
+        <h2 class="page__footer-title">Data Inside Data™</h2>
+
+        
+          <p class="page__footer-email">
+            <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a>
+          </p>
+        
+
+    <ul class="page__footer-quicklinks">
+     
+    <li>
+      <a href="/archive/">Archive</a>
+    </li>
+        
+    <li>
+      <a href="/sitemap.xml">Sitemap</a>
+    </li>
+        
+    <li>
+      <a href="/feed.xml">RSS</a>
+    </li>
+        
+     </ul>
+
+      </div>
+
+      <!-- MIDDLE: Social links (MM style) -->
+      <div class="page__footer-col">
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            
+              
+                
+                  <li>
+                    <a href="https://github.com/dataeden" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="mailto:contact@datainsidedata.com" rel="nofollow noopener noreferrer">
+                      <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="https://www.linkedin.com/" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+                
+              
+            
+
+            
+              <li>
+                <a href="/feed.xml">
+                  <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+                  <span class="label">Feed</span>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Description -->
+      <div class="page__footer-col">
+        
+          <p class="page__footer-desc">The Tech Hands blog: insights, tools, and stories from DataInsideData.</p>
+        
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar (your DID style) -->
+    <div class="footer-bottom">
+      <p class="footer-bottom__copyright">
+        © 2026 Data Inside Data™. All rights reserved.
+      </p>
+
+      <p class="footer-bottom__powered">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>,
+        <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>, and
+        <a href="https://aws.amazon.com/route53/" target="_blank" rel="noopener">AWS Route 53</a>.
+      </p>
+
+      <p class="footer-bottom__legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-bottom__sep">•</span>
+        <a href="/terms/">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>

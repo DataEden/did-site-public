@@ -1,0 +1,684 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Data Inside Data™</title>
+<meta name="description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Data Inside Data™">
+<meta property="og:url" content="https://datainsidedata.com/docs/diagramming/builder_showcase_security_rls_boundary_diagram/">
+
+
+  <meta property="og:description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/docs/diagramming/builder_showcase_security_rls_boundary_diagram/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+<link rel="icon" type="image/png" href="/assets/images/imgs/site-icon-512.png">
+
+<link rel="icon" type="image/x-icon" href="/assets/images/imgs/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/imgs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/imgs/favicon-16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/imgs/apple-touch-icon-180.png">
+ 
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/FuturisticBrand.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="builder-showcase-security-and-rls-boundary-diagram">Builder Showcase Security and RLS Boundary Diagram</h1>
+
+<blockquote>
+  <p>Diagram type: draw.io-friendly security boundary sketch<br />
+Project: DataInsideData™ Builder Showcase<br />
+Phase: Current platform before AI layer</p>
+</blockquote>
+
+<h2 id="purpose">Purpose</h2>
+
+<p>This diagram shows the security boundaries between the public browser, Supabase Edge Function, database tables, admin scripts, reporting tools, and public site output.</p>
+
+<h2 id="recommended-drawio-layout">Recommended Draw.io Layout</h2>
+
+<p>Use separated trust zones with red dashed boundary lines around areas that use secrets or privileged access.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Public Browser Zone]
+      →
+[Edge Function Trust Boundary]
+      →
+[Supabase Database Boundary]
+      →
+[Admin Local Boundary]
+      →
+[Reporting / Publishing Boundary]
+</code></pre></div></div>
+
+<h2 id="zone-1--public-browser-zone">Zone 1 — Public Browser Zone</h2>
+
+<p>Suggested container label:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Public Browser / Untrusted User Boundary
+</code></pre></div></div>
+
+<p>Shapes inside:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Builder / Student / Contributor
+Submit Builder Project Page
+Frontend Validation
+Preview Submission
+Confirm &amp; Submit
+Honeypot Field
+</code></pre></div></div>
+
+<p>Security notes:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>No database credentials exposed
+No direct browser-to-table writes
+Public form key is not a secret
+User input is treated as untrusted
+</code></pre></div></div>
+
+<p>Allowed action:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Browser sends POST request to Edge Function
+</code></pre></div></div>
+
+<p>Not allowed:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Browser inserts directly into builder_project_submissions
+Browser reads internal event logs
+Browser writes to builder_projects
+Browser writes to builder_submission_events
+</code></pre></div></div>
+
+<h2 id="zone-2--edge-function-trust-boundary">Zone 2 — Edge Function Trust Boundary</h2>
+
+<p>Suggested container label:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Supabase Edge Function / Controlled Intake Boundary
+</code></pre></div></div>
+
+<p>Shapes inside:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>submit-builder-project
+CORS Handling
+POST Method Enforcement
+Public Form Key Check
+JSON Payload Validation
+Honeypot Check
+Duplicate Submission Check
+Client IP Hashing
+Controlled Submission Insert
+Controlled Event Insert
+</code></pre></div></div>
+
+<p>Security notes:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Uses server-side environment secrets
+Uses DID_SUPABASE_WRITE_KEY
+Uses DID_IP_HASH_SALT
+Stores salted client IP hash only
+Rejects invalid JSON
+Rejects invalid payloads
+Rejects duplicate submissions
+Logs submission_created event
+</code></pre></div></div>
+
+<p>Important connector:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Edge Function
+→ builder_project_submissions
+→ builder_submission_events
+</code></pre></div></div>
+
+<h2 id="zone-3--supabase-database-boundary">Zone 3 — Supabase Database Boundary</h2>
+
+<p>Suggested container label:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Supabase / Postgres Security Boundary
+</code></pre></div></div>
+
+<p>Tables:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>builder_project_submissions
+builder_submission_events
+builder_projects
+</code></pre></div></div>
+
+<p>Security notes:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RLS enabled on workflow tables
+Public roles should not directly read/write workflow tables
+service_role has intentional backend privileges
+postgres/admin role retains owner/admin privileges
+</code></pre></div></div>
+
+<p>Recommended annotation:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RLS + Grants reviewed:
+- anon/authenticated direct access removed or restricted
+- service_role granted intentional select/insert/update rights
+- event insert permission added for service_role
+</code></pre></div></div>
+
+<p>Table relationship notes:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>builder_project_submissions.id → builder_submission_events.submission_id
+builder_project_submissions.id → builder_projects.submission_id
+builder_projects.id → builder_submission_events.builder_project_id
+</code></pre></div></div>
+
+<h2 id="zone-4--admin-local-workflow-boundary">Zone 4 — Admin Local Workflow Boundary</h2>
+
+<p>Suggested container label:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Local Admin / Trusted Operations Boundary
+</code></pre></div></div>
+
+<p>Shapes inside:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.env / Local Secrets
+check_submission_readme.py
+update_submission_status.py
+promote_builder_projects.py
+export_builder_project.py
+view_submission_events.py
+view_builder_ops_summary.py
+</code></pre></div></div>
+
+<p>Security notes:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Runs from trusted local environment
+Uses privileged database connection
+Logs admin activity as local_admin
+Does not expose admin credentials publicly
+Handles review/promotion/export actions
+</code></pre></div></div>
+
+<p>Admin actions:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>README check
+Status update
+Promotion
+YAML export
+Page generation
+Event review
+Ops summary reporting
+</code></pre></div></div>
+
+<h2 id="zone-5--reporting--dashboard-boundary">Zone 5 — Reporting / Dashboard Boundary</h2>
+
+<p>Suggested container label:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Internal Reporting + Dashboard Boundary
+</code></pre></div></div>
+
+<p>Shapes inside:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reports.py
+pgAdmin Business Queries
+Streamlit Builder Ops Dashboard
+CSV / Operational Reports
+</code></pre></div></div>
+
+<p>Security notes:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Internal use only in current phase
+Reads operational database state
+Shows status counts, README health, events, activity, and project drill-down
+Should not be public without authentication
+</code></pre></div></div>
+
+<p>Potential future requirement:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Add authentication before remote/dashboard deployment
+Add role-based admin permissions before multi-user use
+</code></pre></div></div>
+
+<h2 id="zone-6--public-static-site-boundary">Zone 6 — Public Static Site Boundary</h2>
+
+<p>Suggested container label:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Public Static Site Boundary
+</code></pre></div></div>
+
+<p>Shapes inside:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jekyll / Minimal Mistakes
+_data/builder_projects.yml
+Generated Project Detail Pages
+Public Builder Showcase
+</code></pre></div></div>
+
+<p>Security notes:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Only reviewed/published project metadata should appear here
+Internal submission data should not be exposed
+Submitter email should not be published
+Event logs should remain internal
+README content should be sanitized before rendering
+Unsafe embedded content should be removed or ignored
+</code></pre></div></div>
+
+<h2 id="trust-boundaries">Trust Boundaries</h2>
+
+<p>Use red dashed lines and labels for these:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Boundary 1: Public Browser → Edge Function
+Boundary 2: Edge Function → Supabase Tables
+Boundary 3: Local Admin Scripts → Supabase Tables
+Boundary 4: Supabase Internal Data → Public Static Site
+Boundary 5: Internal Dashboard → Operational Database
+</code></pre></div></div>
+
+<h2 id="security-controls-callout">Security Controls Callout</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CORS handling
+POST-only enforcement
+Public form key
+Payload validation
+Honeypot field
+Duplicate check
+Salted IP hash
+README unsafe marker scan
+Sanitized README rendering
+RLS enabled
+Intentional service_role grants
+Event audit trail
+Private/internal dashboard
+</code></pre></div></div>
+
+<h2 id="risk-areas--future-hardening-callout">Risk Areas / Future Hardening Callout</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dashboard authentication
+Admin roles and permissions
+Rate limiting
+Email verification
+Submission moderation queue
+AI suggestion review approval
+Staging/private preview access control
+Audit export
+Production monitoring
+Error alerting
+Multi-tenant separation
+</code></pre></div></div>
+
+<h2 id="suggested-color-legend">Suggested Color Legend</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gray: Public/untrusted area
+Purple: Edge Function/API boundary
+Green: Database tables
+Orange: Local admin scripts
+Blue: Internal dashboard/reporting
+Cyan: Public static site output
+Red dashed line: Trust/security boundary
+</code></pre></div></div>
+
+<h2 id="diagram-caption">Diagram Caption</h2>
+
+<p>The Builder Showcase security model separates public intake from privileged database operations by routing submissions through a controlled Edge Function, enforcing backend validation, using RLS/grants, and keeping admin workflows and dashboards internal.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer" role="contentinfo">
+  <div class="page__footer-inner">
+    <div class="page__footer-grid">
+
+      <!-- LEFT: Title + email + quick links -->
+      <div class="page__footer-col">
+        <h2 class="page__footer-title">Data Inside Data™</h2>
+
+        
+          <p class="page__footer-email">
+            <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a>
+          </p>
+        
+
+    <ul class="page__footer-quicklinks">
+     
+    <li>
+      <a href="/archive/">Archive</a>
+    </li>
+        
+    <li>
+      <a href="/sitemap.xml">Sitemap</a>
+    </li>
+        
+    <li>
+      <a href="/feed.xml">RSS</a>
+    </li>
+        
+     </ul>
+
+      </div>
+
+      <!-- MIDDLE: Social links (MM style) -->
+      <div class="page__footer-col">
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            
+              
+                
+                  <li>
+                    <a href="https://github.com/dataeden" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="mailto:contact@datainsidedata.com" rel="nofollow noopener noreferrer">
+                      <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="https://www.linkedin.com/" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+                
+              
+            
+
+            
+              <li>
+                <a href="/feed.xml">
+                  <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+                  <span class="label">Feed</span>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Description -->
+      <div class="page__footer-col">
+        
+          <p class="page__footer-desc">The Tech Hands blog: insights, tools, and stories from DataInsideData.</p>
+        
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar (your DID style) -->
+    <div class="footer-bottom">
+      <p class="footer-bottom__copyright">
+        © 2026 Data Inside Data™. All rights reserved.
+      </p>
+
+      <p class="footer-bottom__powered">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>,
+        <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>, and
+        <a href="https://aws.amazon.com/route53/" target="_blank" rel="noopener">AWS Route 53</a>.
+      </p>
+
+      <p class="footer-bottom__legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-bottom__sep">•</span>
+        <a href="/terms/">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>

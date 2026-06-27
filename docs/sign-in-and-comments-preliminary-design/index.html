@@ -1,0 +1,892 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Data Inside Data™</title>
+<meta name="description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Data Inside Data™">
+<meta property="og:url" content="https://datainsidedata.com/docs/sign-in-and-comments-preliminary-design/">
+
+
+  <meta property="og:description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/docs/sign-in-and-comments-preliminary-design/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+<link rel="icon" type="image/png" href="/assets/images/imgs/site-icon-512.png">
+
+<link rel="icon" type="image/x-icon" href="/assets/images/imgs/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/imgs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/imgs/favicon-16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/imgs/apple-touch-icon-180.png">
+ 
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/FuturisticBrand.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="preliminary-design-sign-in-builder-profiles-and-comment-system">Preliminary Design: Sign-In, Builder Profiles, and Comment System</h1>
+
+<h2 id="working-context">Working Context</h2>
+
+<p>DataInsideData™ is evolving from a static portfolio/blog platform into a more interactive technical platform.</p>
+
+<p>The current Builder Showcase pipeline already supports:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public submit form
+→ Supabase Edge Function
+→ builder_project_submissions
+→ review queue
+→ promotion into builder_projects
+→ static publishing to the DataInsideData™ site
+</code></pre></div></div>
+
+<p>The next major platform idea is to eventually support:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sign-in
+builder identity
+project ownership
+comments/discussion
+moderation
+community interaction
+</code></pre></div></div>
+
+<p>This document is a preliminary design note so the platform can grow intentionally instead of bolting on identity and comments later without a plan.</p>
+
+<hr />
+
+<h2 id="why-sign-in-matters">Why Sign-In Matters</h2>
+
+<p>Sign-in is not just a login screen.</p>
+
+<p>For this platform, sign-in can eventually support:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>builder profiles
+claiming submitted projects
+editing project submissions
+commenting on projects/posts
+saving projects
+following project updates
+moderation workflows
+admin review tools
+future AI-assisted resume/project feedback
+</code></pre></div></div>
+
+<p>The goal is not to add sign-in just because modern apps have sign-in.</p>
+
+<p>The goal is to support trusted interaction.</p>
+
+<hr />
+
+<h2 id="why-comments-matter">Why Comments Matter</h2>
+
+<p>Comments can support the learning and portfolio ecosystem around DataInsideData™.</p>
+
+<p>Potential comment use cases:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>readers asking questions on technical posts
+builders receiving feedback on showcase projects
+learners discussing implementation details
+admins leaving review notes
+future mentors or reviewers giving structured feedback
+</code></pre></div></div>
+
+<p>Comments should not be treated as a simple “drop a comment box under every page” feature.</p>
+
+<p>They need:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>identity
+moderation
+spam protection
+reporting
+visibility controls
+auditability
+</code></pre></div></div>
+
+<p>This is especially important because DataInsideData™ is about technical credibility, project evidence, and community learning.</p>
+
+<hr />
+
+<h2 id="guiding-principle">Guiding Principle</h2>
+
+<p>The platform should encourage productive builders while protecting the quality of the site.</p>
+
+<p>The rule is:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Make it easy for real people to participate.
+Make it difficult for spam, impersonation, and low-quality abuse to scale.
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="recommended-authentication-direction">Recommended Authentication Direction</h2>
+
+<p>The first sign-in version should be lightweight.</p>
+
+<p>Recommended first options:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GitHub login
+email magic link
+</code></pre></div></div>
+
+<p>GitHub login fits the Builder Showcase because projects are already GitHub-centered.</p>
+
+<p>Email magic link is useful for non-GitHub visitors, future commenters, and general readers.</p>
+
+<p>Avoid password-based login in the first version unless there is a strong reason to manage passwords directly.</p>
+
+<hr />
+
+<h2 id="possible-identity-model">Possible Identity Model</h2>
+
+<p>A future <code class="language-plaintext highlighter-rouge">builder_profiles</code> table could connect authenticated users to public-facing builder information.</p>
+
+<p>Example concept:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>builder_profiles
+- id
+- auth_user_id
+- display_name
+- github_username
+- public_bio
+- portfolio_url
+- website_url
+- avatar_url
+- created_at
+- updated_at
+</code></pre></div></div>
+
+<p>This would allow the platform to separate:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>authentication identity
+</code></pre></div></div>
+
+<p>from:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public builder profile
+</code></pre></div></div>
+
+<p>That matters because not everything about an authenticated account should automatically become public.</p>
+
+<hr />
+
+<h2 id="project-ownership-concept">Project Ownership Concept</h2>
+
+<p>Eventually, a submitted project could be connected to a signed-in builder.</p>
+
+<p>Possible future relationship:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>builder_profiles.id
+→ builder_project_submissions.builder_profile_id
+→ builder_projects.builder_profile_id
+</code></pre></div></div>
+
+<p>This would support:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>builder dashboard
+edit requests
+claim project
+view submission status
+submit multiple projects
+project history
+</code></pre></div></div>
+
+<p>For now, project submissions can remain email/GitHub based. Sign-in can be added later without breaking the current workflow if the data model is planned carefully.</p>
+
+<hr />
+
+<h2 id="comment-system-scope">Comment System Scope</h2>
+
+<p>Comments should be scoped to content.</p>
+
+<p>Possible comment targets:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blog posts
+fixes
+how-tos
+builder showcase projects
+financial intelligence lab posts
+</code></pre></div></div>
+
+<p>A flexible comment table could support multiple content types.</p>
+
+<p>Example concept:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>comments
+- id
+- author_user_id
+- author_display_name
+- target_type
+- target_slug
+- parent_comment_id
+- body
+- status
+- created_at
+- updated_at
+</code></pre></div></div>
+
+<p>Example <code class="language-plaintext highlighter-rouge">target_type</code> values:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>post
+project
+fix
+how_to
+financial_lab_note
+</code></pre></div></div>
+
+<p>Example <code class="language-plaintext highlighter-rouge">status</code> values:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pending
+approved
+hidden
+rejected
+spam
+</code></pre></div></div>
+
+<p>This keeps comments flexible without creating a separate table for every content type.</p>
+
+<hr />
+
+<h2 id="moderation-model">Moderation Model</h2>
+
+<p>Comments should not go public automatically in the first version.</p>
+
+<p>Recommended MVP flow:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>signed-in user submits comment
+→ comment status = pending
+→ admin reviews
+→ approved comments display publicly
+</code></pre></div></div>
+
+<p>This is slower, but safer.</p>
+
+<p>Later, the system can become more flexible:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>trusted users auto-approved
+first-time commenters moderated
+flagged comments hidden
+spam signals reviewed
+</code></pre></div></div>
+
+<p>But the first version should prioritize control and safety.</p>
+
+<hr />
+
+<h2 id="comment-visibility">Comment Visibility</h2>
+
+<p>Public pages should only display:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>approved comments
+</code></pre></div></div>
+
+<p>Admin tooling can view:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pending
+approved
+hidden
+rejected
+spam
+</code></pre></div></div>
+
+<p>This allows the public site to stay clean while still preserving review history.</p>
+
+<hr />
+
+<h2 id="security-and-row-level-security">Security and Row-Level Security</h2>
+
+<p>Sign-in and comments must use Row-Level Security carefully.</p>
+
+<p>Basic policy direction:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>authenticated users can create their own comments
+users can view their own pending comments
+public visitors can view approved comments
+admins can review/update comment status
+users cannot edit other users' comments
+users cannot approve their own comments
+</code></pre></div></div>
+
+<p>This is one of the reasons comments should not be rushed.</p>
+
+<p>The data model, policies, and admin workflow need to be designed together.</p>
+
+<hr />
+
+<h2 id="spam-protection">Spam Protection</h2>
+
+<p>The comment system should reuse lessons from the Builder Showcase intake form.</p>
+
+<p>Useful protections:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>honeypot field
+frontend cooldown
+backend duplicate checks
+user-agent/origin/referer logging
+IP hash logging with salt
+Turnstile or CAPTCHA later
+moderation queue
+</code></pre></div></div>
+
+<p>Comment spam is more likely than project-submission spam, so comments should be protected from the beginning.</p>
+
+<hr />
+
+<h2 id="privacy-considerations">Privacy Considerations</h2>
+
+<p>Sign-in and comments introduce more responsibility.</p>
+
+<p>The platform should clearly explain:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>what account information is stored
+what profile information is public
+what comment information is public
+what technical metadata is collected for security
+how users can request removal or correction
+</code></pre></div></div>
+
+<p>Any use of hashed IP or request metadata should be treated as security/anti-abuse metadata, not analytics.</p>
+
+<p>This should eventually be reflected in the Privacy Policy.</p>
+
+<hr />
+
+<h2 id="recommended-build-phases">Recommended Build Phases</h2>
+
+<h3 id="phase-a-planning-only">Phase A: Planning Only</h3>
+
+<p>Current phase.</p>
+
+<p>Define:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auth goals
+comment scope
+identity model
+moderation model
+privacy posture
+database shape
+</code></pre></div></div>
+
+<p>No code required yet.</p>
+
+<hr />
+
+<h3 id="phase-b-authentication-prototype">Phase B: Authentication Prototype</h3>
+
+<p>Add sign-in on a test route only.</p>
+
+<p>Possible test page:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/labs/sign-in-test/
+</code></pre></div></div>
+
+<p>Goals:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>test GitHub login
+test email magic link
+confirm auth session
+display signed-in user identity
+sign out
+</code></pre></div></div>
+
+<p>No public comment system yet.</p>
+
+<hr />
+
+<h3 id="phase-c-builder-profile-prototype">Phase C: Builder Profile Prototype</h3>
+
+<p>Add basic builder profile creation.</p>
+
+<p>Goals:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>signed-in user can create profile
+profile can link to GitHub username
+profile can be public or private
+admin can connect profile to submitted projects later
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="phase-d-private-comment-prototype">Phase D: Private Comment Prototype</h3>
+
+<p>Add comments in a non-public test area.</p>
+
+<p>Goals:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>signed-in user can submit comment
+comment enters pending status
+admin can approve/reject
+approved comments display on test page
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="phase-e-public-comment-rollout">Phase E: Public Comment Rollout</h3>
+
+<p>Enable comments on selected content types.</p>
+
+<p>Start narrow:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Builder Showcase project pages only
+</code></pre></div></div>
+
+<p>Then expand later:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>selected fixes
+selected how-tos
+selected blog posts
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="recommended-first-comment-target">Recommended First Comment Target</h2>
+
+<p>The first public comment target should probably be:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Builder Showcase project pages
+</code></pre></div></div>
+
+<p>Why?</p>
+
+<p>Because those pages are naturally project-centered and community-feedback oriented.</p>
+
+<p>A project page comment section can support:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>questions
+feedback
+implementation discussion
+builder clarification
+review notes
+</code></pre></div></div>
+
+<p>This fits the mission better than turning every blog post into a comment thread right away.</p>
+
+<hr />
+
+<h2 id="what-not-to-do-yet">What Not to Do Yet</h2>
+
+<p>Do not rush into:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>open anonymous comments
+unmoderated public comments
+full social network features
+likes/follows/reactions
+password-based auth
+complex notification systems
+</code></pre></div></div>
+
+<p>Those can come later if the need becomes real.</p>
+
+<p>The first goal is trusted interaction, not social media.</p>
+
+<hr />
+
+<h2 id="near-term-decision">Near-Term Decision</h2>
+
+<p>Sign-in and comments should be planned now but not implemented before the current Builder Showcase hardening is complete.</p>
+
+<p>The current order should be:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>finish Phase 3 hardening
+test the intake system
+commit stable milestone
+document architecture
+then prototype auth/comments in a separate branch
+</code></pre></div></div>
+
+<p>This keeps the current pipeline stable while giving the next platform layer a clear direction.</p>
+
+<hr />
+
+<h2 id="final-design-philosophy">Final Design Philosophy</h2>
+
+<p>The Builder Showcase is not just a place to display projects.</p>
+
+<p>It is becoming a system for:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>project evidence
+technical storytelling
+builder credibility
+review workflows
+community learning
+career-facing proof of skill
+</code></pre></div></div>
+
+<p>Sign-in and comments should serve that mission.</p>
+
+<p>They should help real builders, learners, reviewers, and readers interact around meaningful technical work.</p>
+
+<p>The goal is not just interactivity.</p>
+
+<p>The goal is trusted, useful, well-governed interaction.</p>
+
+<h2 id="todo">TODO</h2>
+
+<p>turn it into an actual architecture doc with ERD tables, RLS policy sketches, and a first auth prototype plan.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer" role="contentinfo">
+  <div class="page__footer-inner">
+    <div class="page__footer-grid">
+
+      <!-- LEFT: Title + email + quick links -->
+      <div class="page__footer-col">
+        <h2 class="page__footer-title">Data Inside Data™</h2>
+
+        
+          <p class="page__footer-email">
+            <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a>
+          </p>
+        
+
+    <ul class="page__footer-quicklinks">
+     
+    <li>
+      <a href="/archive/">Archive</a>
+    </li>
+        
+    <li>
+      <a href="/sitemap.xml">Sitemap</a>
+    </li>
+        
+    <li>
+      <a href="/feed.xml">RSS</a>
+    </li>
+        
+     </ul>
+
+      </div>
+
+      <!-- MIDDLE: Social links (MM style) -->
+      <div class="page__footer-col">
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            
+              
+                
+                  <li>
+                    <a href="https://github.com/dataeden" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="mailto:contact@datainsidedata.com" rel="nofollow noopener noreferrer">
+                      <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="https://www.linkedin.com/" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+                
+              
+            
+
+            
+              <li>
+                <a href="/feed.xml">
+                  <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+                  <span class="label">Feed</span>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Description -->
+      <div class="page__footer-col">
+        
+          <p class="page__footer-desc">The Tech Hands blog: insights, tools, and stories from DataInsideData.</p>
+        
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar (your DID style) -->
+    <div class="footer-bottom">
+      <p class="footer-bottom__copyright">
+        © 2026 Data Inside Data™. All rights reserved.
+      </p>
+
+      <p class="footer-bottom__powered">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>,
+        <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>, and
+        <a href="https://aws.amazon.com/route53/" target="_blank" rel="noopener">AWS Route 53</a>.
+      </p>
+
+      <p class="footer-bottom__legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-bottom__sep">•</span>
+        <a href="/terms/">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>

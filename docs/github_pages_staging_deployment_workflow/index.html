@@ -1,0 +1,991 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Data Inside Data™</title>
+<meta name="description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Data Inside Data™">
+<meta property="og:url" content="https://datainsidedata.com/docs/github_pages_staging_deployment_workflow/">
+
+
+  <meta property="og:description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/docs/github_pages_staging_deployment_workflow/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+<link rel="icon" type="image/png" href="/assets/images/imgs/site-icon-512.png">
+
+<link rel="icon" type="image/x-icon" href="/assets/images/imgs/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/imgs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/imgs/favicon-16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/imgs/apple-touch-icon-180.png">
+ 
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/FuturisticBrand.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="github-pages-staging-deployment-workflow">GitHub Pages Staging Deployment Workflow</h1>
+
+<h2 id="milestone">Milestone</h2>
+
+<p>This workflow documents the successful setup of a full-site GitHub Pages staging deployment for the DataInsideData / Builder Showcase layer.</p>
+
+<p>The goal was to create a public staging environment where the full Minimal Mistakes site can be tested before production deployment.</p>
+
+<p>Final staging architecture:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private source repo
+        ↓
+GitHub Actions staging workflow
+        ↓
+full Jekyll staging build
+        ↓
+public staging repo gh-pages branch
+        ↓
+GitHub Pages staging site
+</code></pre></div></div>
+
+<p>Expected staging URL pattern:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://dataeden.github.io/did-builder-showcase-staging/
+</code></pre></div></div>
+
+<p>Builder Showcase form URL pattern:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://dataeden.github.io/did-builder-showcase-staging/projects/submit-a-builder-project/
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="1-create-the-public-staging-repository">1. Create the public staging repository</h2>
+
+<p>Create a new public repository:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataeden/did-builder-showcase-staging
+</code></pre></div></div>
+
+<p>Purpose:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Public GitHub Pages staging layer for full-site preview and Builder Showcase testing.
+</code></pre></div></div>
+
+<p>This repo receives the built static site from the private source repo.</p>
+
+<hr />
+
+<h2 id="2-configure-github-pages-in-the-staging-repo">2. Configure GitHub Pages in the staging repo</h2>
+
+<p>In the public staging repo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Settings
+→ Pages
+</code></pre></div></div>
+
+<p>Initial state may be:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deploy from branch
+Branch: main
+Folder: / root
+</code></pre></div></div>
+
+<p>This is okay before the first deploy.</p>
+
+<p>After the first successful workflow run creates the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch, update Pages to:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Deploy from branch
+Branch: gh-pages
+Folder: / root
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">gh-pages</code> branch may not be selectable until the workflow creates it.</p>
+
+<hr />
+
+<h2 id="3-create-a-staging-deploy-token">3. Create a staging deploy token</h2>
+
+<p>Create a fine-grained personal access token for staging deployment.</p>
+
+<p>Suggested token name:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>did-builder-showcase-staging-deploy
+</code></pre></div></div>
+
+<p>Recommended scope:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Repository access:
+Only selected repositories
+
+Selected repository:
+dataeden/did-builder-showcase-staging
+
+Repository permissions:
+Contents: Read and write
+Metadata: Read-only
+</code></pre></div></div>
+
+<p>Purpose:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Allow GitHub Actions in the private source repo to push the built staging site into the public staging repo.
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-add-the-staging-token-to-private-repo-secrets">4. Add the staging token to private repo secrets</h2>
+
+<p>In the private source repo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Settings
+→ Secrets and variables
+→ Actions
+→ New repository secret
+</code></pre></div></div>
+
+<p>Add:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DID_STAGING_PAT
+</code></pre></div></div>
+
+<p>Secret value:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>the fine-grained token value
+</code></pre></div></div>
+
+<p>Do not commit this token to the repo.</p>
+
+<hr />
+
+<h2 id="5-add-staging-config">5. Add staging config</h2>
+
+<p>Create or update:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_config_staging.yml
+</code></pre></div></div>
+
+<p>For a GitHub Project Pages staging site:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">https://dataeden.github.io"</span>
+<span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/did-builder-showcase-staging"</span>
+
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">DataInsideData</span><span class="nv"> </span><span class="s">Staging"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Staging</span><span class="nv"> </span><span class="s">preview</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">DataInsideData</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Builder</span><span class="nv"> </span><span class="s">Showcase</span><span class="nv"> </span><span class="s">testing."</span>
+
+<span class="na">environment</span><span class="pi">:</span> <span class="s">staging</span>
+</code></pre></div></div>
+
+<p>Why this matters:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GitHub Project Pages serves the site from a subpath:
+https://dataeden.github.io/did-builder-showcase-staging/
+</code></pre></div></div>
+
+<p>So links and assets need the correct <code class="language-plaintext highlighter-rouge">baseurl</code>.</p>
+
+<hr />
+
+<h2 id="6-use-relative-urls-for-staging-safe-assets">6. Use relative URLs for staging-safe assets</h2>
+
+<p>Root-relative links like this can break on project Pages:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">raw readme image</span><span class="p">](</span><span class="sx">/docs/imgs/raw_readme_url_hint.png</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Use Jekyll’s <code class="language-plaintext highlighter-rouge">relative_url</code> filter instead:</p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![raw readme image](/docs/imgs/raw_readme_url_hint.png)
+</code></pre></div></div>
+
+<p>This works across both:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://datainsidedata.com
+https://dataeden.github.io/did-builder-showcase-staging/
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="7-add-generated-build-folders-to-gitignore">7. Add generated build folders to <code class="language-plaintext highlighter-rouge">.gitignore</code></h2>
+
+<p>Add or confirm:</p>
+
+<pre><code class="language-gitignore"># Jekyll build output
+_site/
+_site_staging/
+_site_staging_full/
+.jekyll-cache/
+.sass-cache/
+
+# Local environment secrets
+.env
+.env.*
+!.env.example
+</code></pre>
+
+<p>These folders/files should not be committed.</p>
+
+<p><code class="language-plaintext highlighter-rouge">_site_staging_full/</code> is generated during local test builds or GitHub Actions builds.</p>
+
+<hr />
+
+<h2 id="8-add-the-staging-deploy-workflow">8. Add the staging deploy workflow</h2>
+
+<p>Create:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.github/workflows/deploy-staging.yml
+</code></pre></div></div>
+
+<p>Workflow:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Deploy DID Full Staging Site</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">workflow_dispatch</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">builder-showcase-staging</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build-and-deploy-staging</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout private source repo</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v4</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Set up Ruby</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">ruby/setup-ruby@v1</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">ruby-version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.2"</span>
+          <span class="na">bundler-cache</span><span class="pi">:</span> <span class="kc">true</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build full Jekyll staging site</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">bundle exec jekyll build \</span>
+            <span class="s">--config _config.yml,_config_staging.yml \</span>
+            <span class="s">--destination _site_staging_full</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Add nojekyll</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">touch _site_staging_full/.nojekyll</span>
+
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy full staging site</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">peaceiris/actions-gh-pages@v4</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">personal_token</span><span class="pi">:</span> <span class="s">$</span>
+          <span class="na">external_repository</span><span class="pi">:</span> <span class="s">dataeden/did-builder-showcase-staging</span>
+          <span class="na">publish_branch</span><span class="pi">:</span> <span class="s">gh-pages</span>
+          <span class="na">publish_dir</span><span class="pi">:</span> <span class="s">./_site_staging_full</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="9-make-the-workflow-visible-to-github-actions">9. Make the workflow visible to GitHub Actions</h2>
+
+<p>Important lesson:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>For manual workflow_dispatch runs, GitHub must be able to see the workflow file on the default branch.
+</code></pre></div></div>
+
+<p>If <code class="language-plaintext highlighter-rouge">deploy-staging.yml</code> only exists on a feature branch, this command may fail:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">workflow</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">deploy-staging.yml</span><span class="w"> </span><span class="nt">--ref</span><span class="w"> </span><span class="nx">feat/community-projects</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Possible error:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP 404: workflow deploy-staging.yml not found on the default branch
+</code></pre></div></div>
+
+<p>Fix:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Commit deploy-staging.yml to the default branch first.
+</code></pre></div></div>
+
+<p>Only the workflow/config support files need to be added to the default branch:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.github/workflows/deploy-staging.yml
+_config_staging.yml
+.gitignore
+</code></pre></div></div>
+
+<p>The actual site changes can remain on the feature branch.</p>
+
+<hr />
+
+<h2 id="10-run-the-workflow-from-the-feature-branch">10. Run the workflow from the feature branch</h2>
+
+<p>Once the workflow exists on the default branch, run it against the branch you want to deploy:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">workflow</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">deploy-staging.yml</span><span class="w"> </span><span class="nt">--ref</span><span class="w"> </span><span class="nx">feat/community-projects</span><span class="w">
+</span></code></pre></div></div>
+
+<p>GitHub CLI response:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>✓ Created workflow_dispatch event for deploy-staging.yml at feat/community-projects
+
+To see runs for this workflow, try:
+gh run list --workflow="deploy-staging.yml"
+</code></pre></div></div>
+
+<p>Rule:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deploy-staging.yml must exist on the default branch
+--ref points to the branch that should be built and deployed
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="11-check-workflow-run-status">11. Check workflow run status</h2>
+
+<p>List recent runs:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="nt">--workflow</span><span class="o">=</span><span class="s2">"deploy-staging.yml"</span><span class="w"> </span><span class="nt">--limit</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></code></pre></div></div>
+
+<p>View a specific run:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">view</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">RUN_ID</span><span class="err">&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<p>View failed logs:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">view</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">RUN_ID</span><span class="err">&gt;</span><span class="w"> </span><span class="nt">--log-failed</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Watch the current/latest run:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">watch</span><span class="w">
+</span></code></pre></div></div>
+
+<p>View job details:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">view</span><span class="w"> </span><span class="nt">--job</span><span class="o">=</span><span class="err">&lt;</span><span class="n">JOB_ID</span><span class="err">&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="12-first-failure-bundler-platform-mismatch">12. First failure: Bundler platform mismatch</h2>
+
+<p>The first workflow attempt failed during Ruby setup.</p>
+
+<p>Error summary:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process '/opt/hostedtoolcache/Ruby/3.2.11/x64/bin/bundle' failed with exit code 16
+</code></pre></div></div>
+
+<p>Detailed cause:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Your bundle only supports platforms ["x64-mingw-ucrt"] but your local platform is x86_64-linux.
+Add the current platform to the lockfile with:
+bundle lock --add-platform x86_64-linux
+</code></pre></div></div>
+
+<p>Why it happened:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Gemfile.lock was generated on Windows.
+GitHub Actions runs on Linux.
+The lockfile needed the Linux platform added.
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="13-fix-bundler-platform-support">13. Fix Bundler platform support</h2>
+
+<p>On the feature branch:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">checkout</span><span class="w"> </span><span class="nx">feat/community-projects</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Add Linux platform:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bundle</span><span class="w"> </span><span class="nx">lock</span><span class="w"> </span><span class="nt">--add-platform</span><span class="w"> </span><span class="nx">x86_64-linux</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Optional but helpful:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bundle</span><span class="w"> </span><span class="nx">lock</span><span class="w"> </span><span class="nt">--add-platform</span><span class="w"> </span><span class="nx">ruby</span><span class="w">
+</span></code></pre></div></div>
+
+<p>A deprecation warning may appear about Windows platform names. That warning does not block the fix.</p>
+
+<p>Confirm the lockfile changed:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">diff</span><span class="w"> </span><span class="nx">Gemfile.lock</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Expected platform section includes:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PLATFORMS
+  ruby
+  x64-mingw-ucrt
+  x86_64-linux
+</code></pre></div></div>
+
+<p>Commit and push:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">Gemfile.lock</span><span class="w">
+</span><span class="n">git</span><span class="w"> </span><span class="nx">commit</span><span class="w"> </span><span class="nt">-m</span><span class="w"> </span><span class="s2">"Add Linux platform to Gemfile lock"</span><span class="w">
+</span><span class="n">git</span><span class="w"> </span><span class="nx">push</span><span class="w"> </span><span class="nx">origin</span><span class="w"> </span><span class="nx">feat/community-projects</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="14-rerun-the-staging-deploy">14. Rerun the staging deploy</h2>
+
+<p>Run the workflow again:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">workflow</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">deploy-staging.yml</span><span class="w"> </span><span class="nt">--ref</span><span class="w"> </span><span class="nx">feat/community-projects</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Check status:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="nt">--workflow</span><span class="o">=</span><span class="s2">"deploy-staging.yml"</span><span class="w"> </span><span class="nt">--limit</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></code></pre></div></div>
+
+<p>View the run:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">view</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">RUN_ID</span><span class="err">&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Successful result:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>✓ feat/community-projects Deploy DID Full Staging Site
+Triggered via workflow_dispatch
+
+JOBS
+✓ build-and-deploy-staging
+</code></pre></div></div>
+
+<p>Example successful milestone:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>✓ feat/community-projects Deploy DID Full Staging Site · 27240924480
+Triggered via workflow_dispatch
+
+JOBS
+✓ build-and-deploy-staging in 45s
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="15-after-successful-deploy">15. After successful deploy</h2>
+
+<p>Go to the public staging repo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataeden/did-builder-showcase-staging
+</code></pre></div></div>
+
+<p>Confirm:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gh-pages branch exists
+index.html exists
+assets/ exists
+.nojekyll exists
+</code></pre></div></div>
+
+<p>Then in the staging repo:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Settings
+→ Pages
+→ Deploy from branch
+→ gh-pages
+→ / root
+→ Save
+</code></pre></div></div>
+
+<p>After GitHub Pages publishes, test:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://dataeden.github.io/did-builder-showcase-staging/
+</code></pre></div></div>
+
+<p>And:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://dataeden.github.io/did-builder-showcase-staging/projects/submit-a-builder-project/
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="16-edge-function-cors-note">16. Edge Function CORS note</h2>
+
+<p>Because the staging site is served from GitHub Pages, the browser origin is:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://dataeden.github.io
+</code></pre></div></div>
+
+<p>If the Builder Showcase form posts to a Supabase Edge Function, the Edge Function CORS allowlist should include:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">https://dataeden.github.io</span><span class="dl">"</span>
+</code></pre></div></div>
+
+<p>The full page path is not the origin.</p>
+
+<p>Correct origin:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://dataeden.github.io
+</code></pre></div></div>
+
+<p>Not:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://dataeden.github.io/did-builder-showcase-staging/
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="17-final-working-flow">17. Final working flow</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>feat/community-projects branch
+        ↓
+gh workflow run deploy-staging.yml --ref feat/community-projects
+        ↓
+GitHub Actions checks out feature branch
+        ↓
+Ruby + Bundler setup
+        ↓
+Jekyll builds full site with _config_staging.yml
+        ↓
+_site_staging_full generated
+        ↓
+.nojekyll added
+        ↓
+peaceiris/actions-gh-pages pushes output to staging repo gh-pages
+        ↓
+GitHub Pages serves staging site
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="18-useful-commands-reference">18. Useful commands reference</h2>
+
+<p>Check current branch:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">branch</span><span class="w"> </span><span class="nt">--show-current</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Push feature branch:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">push</span><span class="w"> </span><span class="nx">origin</span><span class="w"> </span><span class="nx">feat/community-projects</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Run staging deploy:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">workflow</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">deploy-staging.yml</span><span class="w"> </span><span class="nt">--ref</span><span class="w"> </span><span class="nx">feat/community-projects</span><span class="w">
+</span></code></pre></div></div>
+
+<p>List workflow runs:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">list</span><span class="w"> </span><span class="nt">--workflow</span><span class="o">=</span><span class="s2">"deploy-staging.yml"</span><span class="w"> </span><span class="nt">--limit</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></code></pre></div></div>
+
+<p>View run:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">view</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">RUN_ID</span><span class="err">&gt;</span><span class="w">
+</span></code></pre></div></div>
+
+<p>View failed logs:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">view</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">RUN_ID</span><span class="err">&gt;</span><span class="w"> </span><span class="nt">--log-failed</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Watch run:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gh</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">watch</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Add Linux platform to lockfile:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bundle</span><span class="w"> </span><span class="nx">lock</span><span class="w"> </span><span class="nt">--add-platform</span><span class="w"> </span><span class="nx">x86_64-linux</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Add generic Ruby platform:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bundle</span><span class="w"> </span><span class="nx">lock</span><span class="w"> </span><span class="nt">--add-platform</span><span class="w"> </span><span class="nx">ruby</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Commit lockfile fix:</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">git</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="nx">Gemfile.lock</span><span class="w">
+</span><span class="n">git</span><span class="w"> </span><span class="nx">commit</span><span class="w"> </span><span class="nt">-m</span><span class="w"> </span><span class="s2">"Add Linux platform to Gemfile lock"</span><span class="w">
+</span><span class="n">git</span><span class="w"> </span><span class="nx">push</span><span class="w"> </span><span class="nx">origin</span><span class="w"> </span><span class="nx">feat/community-projects</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="19-milestone-summary">19. Milestone summary</h2>
+
+<p>This milestone created a working full-site staging deployment path for DataInsideData and Builder Showcase.</p>
+
+<p>It enables:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>full-site preview testing
+Builder Showcase form testing
+navigation/style testing
+GitHub Pages staging before production
+safe participant submission testing
+future feature QA before live deployment
+</code></pre></div></div>
+
+<p>This supports the broader Builder Showcase workflow by creating a safe public testing layer before promoting changes to the production DataInsideData site.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer" role="contentinfo">
+  <div class="page__footer-inner">
+    <div class="page__footer-grid">
+
+      <!-- LEFT: Title + email + quick links -->
+      <div class="page__footer-col">
+        <h2 class="page__footer-title">Data Inside Data™</h2>
+
+        
+          <p class="page__footer-email">
+            <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a>
+          </p>
+        
+
+    <ul class="page__footer-quicklinks">
+     
+    <li>
+      <a href="/archive/">Archive</a>
+    </li>
+        
+    <li>
+      <a href="/sitemap.xml">Sitemap</a>
+    </li>
+        
+    <li>
+      <a href="/feed.xml">RSS</a>
+    </li>
+        
+     </ul>
+
+      </div>
+
+      <!-- MIDDLE: Social links (MM style) -->
+      <div class="page__footer-col">
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            
+              
+                
+                  <li>
+                    <a href="https://github.com/dataeden" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="mailto:contact@datainsidedata.com" rel="nofollow noopener noreferrer">
+                      <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="https://www.linkedin.com/" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+                
+              
+            
+
+            
+              <li>
+                <a href="/feed.xml">
+                  <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+                  <span class="label">Feed</span>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Description -->
+      <div class="page__footer-col">
+        
+          <p class="page__footer-desc">The Tech Hands blog: insights, tools, and stories from DataInsideData.</p>
+        
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar (your DID style) -->
+    <div class="footer-bottom">
+      <p class="footer-bottom__copyright">
+        © 2026 Data Inside Data™. All rights reserved.
+      </p>
+
+      <p class="footer-bottom__powered">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>,
+        <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>, and
+        <a href="https://aws.amazon.com/route53/" target="_blank" rel="noopener">AWS Route 53</a>.
+      </p>
+
+      <p class="footer-bottom__legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-bottom__sep">•</span>
+        <a href="/terms/">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>

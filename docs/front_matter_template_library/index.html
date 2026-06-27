@@ -1,0 +1,795 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Data Inside Data™</title>
+<meta name="description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Data Inside Data™">
+<meta property="og:url" content="https://datainsidedata.com/docs/front_matter_template_library/">
+
+
+  <meta property="og:description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/docs/front_matter_template_library/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+<link rel="icon" type="image/png" href="/assets/images/imgs/site-icon-512.png">
+
+<link rel="icon" type="image/x-icon" href="/assets/images/imgs/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/imgs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/imgs/favicon-16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/imgs/apple-touch-icon-180.png">
+ 
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/FuturisticBrand.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="front-matter-template-library">Front Matter Template Library</h1>
+
+<p>A reusable reference for DataInsideData™ posts and project pages.</p>
+
+<p>Use these templates as starting points and adjust titles, excerpts, categories, tags, and TOC settings as needed.</p>
+
+<hr />
+
+<h2 id="1-analytics-post-template">1. Analytics Post Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>portfolio analysis</li>
+  <li>business intelligence writeups</li>
+  <li>market / economic analysis</li>
+  <li>exploratory data analysis posts</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">analytics"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">data-analysis"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">systems-thinking"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Analysis</span><span class="nv"> </span><span class="s">Flow"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">chart-line"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="suggested-category-additions">Suggested category additions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"financial-intelligence-lab"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"business-intelligence"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"economic-analysis"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"decision-systems"</code></li>
+</ul>
+
+<h3 id="suggested-tag-additions">Suggested tag additions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"portfolio-analysis"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"financial-markets"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"exploratory-data-analysis"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"visualization"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"learning-in-public"</code></li>
+</ul>
+
+<hr />
+
+<h2 id="2-applied-machine-learning-post-template">2. Applied Machine Learning Post Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>fraud detection</li>
+  <li>recommender systems</li>
+  <li>classification projects</li>
+  <li>model evaluation writeups</li>
+  <li>notebook-to-system ML posts</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">applied-data-science-&amp;-machine-learning"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">ai"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">machine-learning"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">classification"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">model-evaluation"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Technical</span><span class="nv"> </span><span class="s">Breakdown"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">brain"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="suggested-tag-additions-1">Suggested tag additions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"fraud-detection"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"imbalanced-data"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"feature-engineering"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"scikit-learn"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"precision-recall"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"ml-pipeline"</code></li>
+</ul>
+
+<hr />
+
+<h2 id="3-cloud--devops--infrastructure-post-template">3. Cloud / DevOps / Infrastructure Post Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>deployment workflows</li>
+  <li>CI/CD writeups</li>
+  <li>infrastructure notes</li>
+  <li>architecture implementation posts</li>
+  <li>GitHub Pages / AWS / platform engineering posts</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">cloud-engineering-devops-&amp;-technical-infrastructure"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">cloud"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">devops"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">infrastructure"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">platform-engineering"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">System</span><span class="nv"> </span><span class="s">Overview"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cogs"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="suggested-tag-additions-2">Suggested tag additions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"ci-cd"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"github-actions"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"aws"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"jekyll"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"minimal-mistakes"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"deployment"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"systems-architecture"</code></li>
+</ul>
+
+<hr />
+
+<h2 id="4-financial-intelligence-lab-post-template">4. Financial Intelligence Lab Post Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>lab updates</li>
+  <li>investing lessons</li>
+  <li>market observations</li>
+  <li>daily / weekly structured reflections</li>
+  <li>portfolio system writeups</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">financial-intelligence-lab"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">analytics"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">systems-thinking"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">investing"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">portfolio-analysis"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">financial-markets"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">decision-systems"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Lab</span><span class="nv"> </span><span class="s">Breakdown"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">chart-line"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="suggested-tag-additions-3">Suggested tag additions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"learning-in-public"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"portfolio-tracking"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"macro-signals"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"sector-analysis"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"capital-deployment"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"market-behavior"</code></li>
+</ul>
+
+<hr />
+
+<h2 id="5-educational--how-to-post-template">5. Educational / How-To Post Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>setup guides</li>
+  <li>tooling guides</li>
+  <li>troubleshooting walkthroughs</li>
+  <li>environment notes</li>
+  <li>repeatable implementation posts</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">how-tos"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">tutorial"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">workflow"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">tooling"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Build</span><span class="nv"> </span><span class="s">Steps"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">lightbulb"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="suggested-tag-additions-4">Suggested tag additions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"windows"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"github"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"powershell"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"python"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"setup"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"troubleshooting"</code></li>
+</ul>
+
+<hr />
+
+<h2 id="6-fixes--troubleshooting-post-template">6. Fixes / Troubleshooting Post Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>environment bugs</li>
+  <li>rendering issues</li>
+  <li>dependency conflicts</li>
+  <li>deployment fixes</li>
+  <li>path / config problems</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">fixes"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">debugging"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">troubleshooting"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">workflow"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Fix</span><span class="nv"> </span><span class="s">Outline"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">tools"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="suggested-tag-additions-5">Suggested tag additions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"jekyll"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"minimal-mistakes"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"ruby"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"github-pages"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"windows"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"environment"</code></li>
+</ul>
+
+<hr />
+
+<h2 id="7-project-page-template">7. Project Page Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>project collection pages</li>
+  <li>README-rendered pages</li>
+  <li>architecture-heavy project pages</li>
+  <li>portfolio collection entries</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="optional-project-page-additions">Optional project-page additions</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">header</span><span class="pi">:</span>
+  <span class="na">teaser</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Project</span><span class="nv"> </span><span class="s">Overview"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">project-diagram"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="8-architecture--system-design-post-template">8. Architecture / System Design Post Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>diagrams</li>
+  <li>system breakdowns</li>
+  <li>repo design notes</li>
+  <li>layered architecture writeups</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">systems-thinking"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">architecture"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">architecture"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">systems-design"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">documentation"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Architecture</span><span class="nv"> </span><span class="s">Overview"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">project-diagram"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="suggested-tag-additions-6">Suggested tag additions</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"mermaid"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"draw-io"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"platform-design"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"repo-structure"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"documentation-systems"</code></li>
+</ul>
+
+<hr />
+
+<h2 id="9-short-reflection--update-template">9. Short Reflection / Update Template</h2>
+
+<p>Use for:</p>
+<ul>
+  <li>quick project reflections</li>
+  <li>milestone notes</li>
+  <li>short learning updates</li>
+  <li>in-progress observations</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">notes"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">learning-in-public"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">reflection"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">false</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="10-default-minimal-template">10. Default Minimal Template</h2>
+
+<p>Use when you want to start simple and customize later.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">"</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">"</span><span class="pi">]</span>
+<span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Post</span><span class="nv"> </span><span class="s">Outline"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">chart-line"</span>
+<span class="na">classes</span><span class="pi">:</span> <span class="s2">"</span><span class="s">wide"</span>
+<span class="na">author_profile</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="recommended-defaults-by-content-type">Recommended Defaults by Content Type</h2>
+
+<h3 id="analytics">Analytics</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Analysis</span><span class="nv"> </span><span class="s">Flow"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">chart-line"</span>
+</code></pre></div></div>
+
+<h3 id="ml--ai">ML / AI</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Technical</span><span class="nv"> </span><span class="s">Breakdown"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">brain"</span>
+</code></pre></div></div>
+
+<h3 id="infrastructure">Infrastructure</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">System</span><span class="nv"> </span><span class="s">Overview"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cogs"</span>
+</code></pre></div></div>
+
+<h3 id="financial-intelligence-lab">Financial Intelligence Lab</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Lab</span><span class="nv"> </span><span class="s">Breakdown"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">chart-line"</span>
+</code></pre></div></div>
+
+<h3 id="how-to">How-To</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Build</span><span class="nv"> </span><span class="s">Steps"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">lightbulb"</span>
+</code></pre></div></div>
+
+<h3 id="fixes">Fixes</h3>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">toc</span><span class="pi">:</span> <span class="kc">true</span>
+<span class="na">toc_label</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Fix</span><span class="nv"> </span><span class="s">Outline"</span>
+<span class="na">toc_icon</span><span class="pi">:</span> <span class="s2">"</span><span class="s">tools"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="suggested-working-process">Suggested Working Process</h2>
+
+<ol>
+  <li>Pick the template that matches the post type.</li>
+  <li>Fill in the title and excerpt first.</li>
+  <li>Choose 1 - 3 categories maximum.</li>
+  <li>Choose 4 - 8 tags maximum.</li>
+  <li>Keep TOC on for long-form posts and off for short updates.</li>
+  <li>Reuse consistent labels and icons by section so the site feels designed, not random.</li>
+</ol>
+
+<hr />
+
+<h2 id="final-note">Final Note</h2>
+
+<p>This library is meant to make your writing workflow faster and more consistent.</p>
+
+<p>Over time, we’ll expand it into:</p>
+
+<ul>
+  <li>collection-specific templates</li>
+  <li>post checklists</li>
+  <li>SEO title / excerpt patterns</li>
+  <li>standardized callout blocks</li>
+  <li>reusable project-page shells</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer" role="contentinfo">
+  <div class="page__footer-inner">
+    <div class="page__footer-grid">
+
+      <!-- LEFT: Title + email + quick links -->
+      <div class="page__footer-col">
+        <h2 class="page__footer-title">Data Inside Data™</h2>
+
+        
+          <p class="page__footer-email">
+            <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a>
+          </p>
+        
+
+    <ul class="page__footer-quicklinks">
+     
+    <li>
+      <a href="/archive/">Archive</a>
+    </li>
+        
+    <li>
+      <a href="/sitemap.xml">Sitemap</a>
+    </li>
+        
+    <li>
+      <a href="/feed.xml">RSS</a>
+    </li>
+        
+     </ul>
+
+      </div>
+
+      <!-- MIDDLE: Social links (MM style) -->
+      <div class="page__footer-col">
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            
+              
+                
+                  <li>
+                    <a href="https://github.com/dataeden" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="mailto:contact@datainsidedata.com" rel="nofollow noopener noreferrer">
+                      <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="https://www.linkedin.com/" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+                
+              
+            
+
+            
+              <li>
+                <a href="/feed.xml">
+                  <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+                  <span class="label">Feed</span>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Description -->
+      <div class="page__footer-col">
+        
+          <p class="page__footer-desc">The Tech Hands blog: insights, tools, and stories from DataInsideData.</p>
+        
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar (your DID style) -->
+    <div class="footer-bottom">
+      <p class="footer-bottom__copyright">
+        © 2026 Data Inside Data™. All rights reserved.
+      </p>
+
+      <p class="footer-bottom__powered">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>,
+        <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>, and
+        <a href="https://aws.amazon.com/route53/" target="_blank" rel="noopener">AWS Route 53</a>.
+      </p>
+
+      <p class="footer-bottom__legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-bottom__sep">•</span>
+        <a href="/terms/">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>

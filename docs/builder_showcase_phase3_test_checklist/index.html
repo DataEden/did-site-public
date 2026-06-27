@@ -1,0 +1,859 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Data Inside Data™</title>
+<meta name="description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Data Inside Data™">
+<meta property="og:url" content="https://datainsidedata.com/docs/builder_showcase_phase3_test_checklist/">
+
+
+  <meta property="og:description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/docs/builder_showcase_phase3_test_checklist/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+<link rel="icon" type="image/png" href="/assets/images/imgs/site-icon-512.png">
+
+<link rel="icon" type="image/x-icon" href="/assets/images/imgs/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/imgs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/imgs/favicon-16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/imgs/apple-touch-icon-180.png">
+ 
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/FuturisticBrand.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="builder-showcase-phase-3-validation--anti-spam-test-checklist">Builder Showcase Phase 3 Validation + Anti-Spam Test Checklist</h1>
+
+<blockquote>
+  <p>Working context: DataInsideData™ Builder Showcase / ProofMe intake pipeline.</p>
+
+  <p>Goal: confirm the new frontend preview flow, backend validation, duplicate detection, honeypot, metadata logging, and deployment path all work before moving deeper into Phase 3 hardening.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="0-pre-test-setup">0. Pre-Test Setup</h2>
+
+<h3 id="local-repo--branch">Local repo / branch</h3>
+
+<ul>
+  <li>[✔️] Confirm you are on the correct branch.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">--show-current</span>
+git status
+</code></pre></div></div>
+
+<ul>
+  <li>[✔️] Confirm there are no unexpected old submit pages or duplicate routes.</li>
+</ul>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-ChildItem</span><span class="w"> </span><span class="nt">-Recurse</span><span class="w"> </span><span class="nt">-File</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Select-String</span><span class="w"> </span><span class="s2">"submit-a-builder-project"</span><span class="w">
+</span><span class="n">Get-ChildItem</span><span class="w"> </span><span class="nt">-Recurse</span><span class="w"> </span><span class="nt">-File</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Select-String</span><span class="w"> </span><span class="s2">"Test payload created successfully"</span><span class="w">
+</span></code></pre></div></div>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Confirm the canonical submit page is:</li>
+</ul>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/projects/builder-showcase/submit/
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="1-backend-database-prep">1. Backend Database Prep</h2>
+
+<h3 id="required-metadata-columns">Required metadata columns</h3>
+
+<p>Run in pgAdmin or the SQL runner:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">alter</span> <span class="k">table</span> <span class="k">public</span><span class="p">.</span><span class="n">builder_project_submissions</span>
+<span class="k">add</span> <span class="k">column</span> <span class="n">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="n">user_agent</span> <span class="nb">text</span><span class="p">,</span>
+<span class="k">add</span> <span class="k">column</span> <span class="n">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="n">request_origin</span> <span class="nb">text</span><span class="p">,</span>
+<span class="k">add</span> <span class="k">column</span> <span class="n">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="n">request_referer</span> <span class="nb">text</span><span class="p">,</span>
+<span class="k">add</span> <span class="k">column</span> <span class="n">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="n">client_ip_hash</span> <span class="nb">text</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="helpful-indexes">Helpful indexes</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">create</span> <span class="k">index</span> <span class="n">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="n">idx_builder_project_submissions_readme_url</span>
+<span class="k">on</span> <span class="k">public</span><span class="p">.</span><span class="n">builder_project_submissions</span><span class="p">(</span><span class="n">readme_url</span><span class="p">);</span>
+
+<span class="k">create</span> <span class="k">index</span> <span class="n">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="n">idx_builder_project_submissions_email_repo_title_created_at</span>
+<span class="k">on</span> <span class="k">public</span><span class="p">.</span><span class="n">builder_project_submissions</span><span class="p">(</span>
+  <span class="n">submitter_email</span><span class="p">,</span>
+  <span class="n">repo_url</span><span class="p">,</span>
+  <span class="n">project_title</span><span class="p">,</span>
+  <span class="n">created_at</span> <span class="k">desc</span>
+<span class="p">);</span>
+
+<span class="k">create</span> <span class="k">index</span> <span class="n">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="n">idx_builder_project_submissions_client_ip_hash</span>
+<span class="k">on</span> <span class="k">public</span><span class="p">.</span><span class="n">builder_project_submissions</span><span class="p">(</span><span class="n">client_ip_hash</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-supabase-secrets">2. Supabase Secrets</h2>
+
+<h3 id="confirm-required-edge-function-secrets">Confirm required Edge Function secrets</h3>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">SUPABASE_URL</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">DID_SUPABASE_WRITE_KEY</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">DID_PUBLIC_FORM_KEY</code></li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">DID_IP_HASH_SALT</code></li>
+</ul>
+
+<p>Check secrets:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx supabase secrets list
+</code></pre></div></div>
+
+<p>Set IP salt if needed:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-c</span> <span class="s2">"import secrets; print(secrets.token_hex(32))"</span>
+</code></pre></div></div>
+
+<p>Then:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx supabase secrets <span class="nb">set </span><span class="nv">DID_IP_HASH_SALT</span><span class="o">=</span><span class="s2">"PASTE_RANDOM_HEX_STRING_HERE"</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-deno--function-validation">3. Deno + Function Validation</h2>
+
+<p>From the function folder:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>supabase/functions/submit-builder-project
+deno check index.ts
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No TypeScript errors.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No <code class="language-plaintext highlighter-rouge">"public" is not assignable to type "never"</code> error.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No missing import errors.</li>
+</ul>
+
+<p>Deploy:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx supabase functions deploy submit-builder-project
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Function deploys successfully.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Supabase CLI is logged in.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Correct Supabase project is linked/selected.</li>
+</ul>
+
+<hr />
+
+<h2 id="4-frontend-preview-flow">4. Frontend Preview Flow</h2>
+
+<p>Start Jekyll cleanly:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">exec </span>jekyll clean
+bundle <span class="nb">exec </span>jekyll serve <span class="nt">--livereload</span> <span class="nt">--trace</span>
+</code></pre></div></div>
+
+<p>Open:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost:4000/projects/builder-showcase/submit/
+</code></pre></div></div>
+
+<h3 id="preview-behavior">Preview behavior</h3>
+
+<ul>
+  <li>[✔️] Fill a valid form.</li>
+  <li>[✔️] Click <code class="language-plaintext highlighter-rouge">Preview Submission</code>.</li>
+  <li>[✔️] Confirm preview panel appears.</li>
+  <li>[✔️] Confirm cleaned email is lowercased.</li>
+  <li>[✔️] Confirm tags are trimmed and comma-split.</li>
+  <li>[✔️] Confirm long README URL wraps inside the preview box.</li>
+  <li>[✔️] Confirm <code class="language-plaintext highlighter-rouge">Confirm &amp; Submit</code> is visible and left-aligned.</li>
+  <li>[✔️] Confirm <code class="language-plaintext highlighter-rouge">Make Edits</code> is visible and not white-on-white.</li>
+  <li>[✔️] Click <code class="language-plaintext highlighter-rouge">Make Edits</code>.</li>
+  <li>[✔️] Confirm page scrolls/focuses back to the first form field.</li>
+  <li>[✔️] Confirm form values remain editable.</li>
+</ul>
+
+<hr />
+
+<h2 id="5-frontend-required-field-tests">5. Frontend Required Field Tests</h2>
+
+<p>Try submitting with each missing field:</p>
+
+<ul>
+  <li>[✔️] Missing first name fails.</li>
+  <li>[✔️] Missing last name fails.</li>
+  <li>[✔️] Missing email fails.</li>
+  <li>[✔️] Missing repo URL fails.</li>
+  <li>[✔️] Missing project title fails.</li>
+  <li>[✔️] Blank category fails.</li>
+  <li>[✔️] Missing description fails.</li>
+  <li>[✔️] Blank tags/tools fails.</li>
+  <li>[✔️] Unchecked ownership/permission checkbox fails.</li>
+  <li>[✔️] Unchecked public showcase acknowledgement fails.</li>
+</ul>
+
+<p>Expected:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Browser validation or preview validation blocks submission before database insert.
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="6-backend-validation-tests">6. Backend Validation Tests</h2>
+
+<p>These should fail even if someone bypasses browser validation.</p>
+
+<h3 id="bad-repo-url">Bad repo URL</h3>
+
+<p>Use:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://google.com/test
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend returns <code class="language-plaintext highlighter-rouge">400</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Message says repository URL must be a valid GitHub repository URL.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No row inserted.</li>
+</ul>
+
+<h3 id="bad-readme-url">Bad README URL</h3>
+
+<p>Use a normal GitHub page URL instead of raw URL:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/user/repo/blob/main/README.md
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend returns <code class="language-plaintext highlighter-rouge">400</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Message says README URL must be raw.githubusercontent.com and end in README.md.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No row inserted.</li>
+</ul>
+
+<h3 id="valid-github-repo-url">Valid GitHub repo URL</h3>
+
+<p>Use:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/user/repo
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend accepts if all other fields are valid.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Row inserted.</li>
+</ul>
+
+<h3 id="valid-raw-readme-url">Valid raw README URL</h3>
+
+<p>Use:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://raw.githubusercontent.com/user/repo/main/README.md
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend accepts if all other fields are valid.</li>
+</ul>
+
+<hr />
+
+<h2 id="7-honeypot-test">7. Honeypot Test</h2>
+
+<p>Use DevTools or temporarily unhide the honeypot field and enter a value for:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>website
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend returns <code class="language-plaintext highlighter-rouge">400</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Message says invalid submission.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No row inserted.</li>
+</ul>
+
+<hr />
+
+<h2 id="8-duplicate-submission-tests">8. Duplicate Submission Tests</h2>
+
+<h3 id="same-readme-url-already-active">Same README URL already active</h3>
+
+<p>Submit a project using a README URL that already exists in an active workflow status:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>submitted
+reviewing
+approved
+published
+needs_changes
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend returns <code class="language-plaintext highlighter-rouge">409</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Message says a submission using this README URL is already in the review/publishing workflow.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No duplicate row inserted.</li>
+</ul>
+
+<h3 id="same-email--repo-url--project-title-within-10-minutes">Same email + repo URL + project title within 10 minutes</h3>
+
+<p>Submit the same exact:</p>
+
+<ul>
+  <li>email</li>
+  <li>repo URL</li>
+  <li>project title</li>
+</ul>
+
+<p>within 10 minutes.</p>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend returns <code class="language-plaintext highlighter-rouge">409</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Message says similar submission was received recently.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />No duplicate row inserted.</li>
+</ul>
+
+<h3 id="same-email--same-repo--different-project-title">Same email + same repo + different project title</h3>
+
+<p>Submit:</p>
+
+<ul>
+  <li>same email</li>
+  <li>same repo URL</li>
+  <li>different project title</li>
+</ul>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Submission is allowed.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Row inserted.</li>
+</ul>
+
+<h3 id="same-email--same-monorepo--different-readme-url">Same email + same monorepo + different README URL</h3>
+
+<p>Submit:</p>
+
+<ul>
+  <li>same email</li>
+  <li>same repo URL</li>
+  <li>different raw README URL</li>
+</ul>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Submission is allowed.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Row inserted.</li>
+</ul>
+
+<hr />
+
+<h2 id="9-metadata-logging-tests">9. Metadata Logging Tests</h2>
+
+<p>After successful submission, query:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span>
+    <span class="n">id</span><span class="p">,</span>
+    <span class="n">project_title</span><span class="p">,</span>
+    <span class="n">submitter_email</span><span class="p">,</span>
+    <span class="n">user_agent</span><span class="p">,</span>
+    <span class="n">request_origin</span><span class="p">,</span>
+    <span class="n">request_referer</span><span class="p">,</span>
+    <span class="n">client_ip_hash</span><span class="p">,</span>
+    <span class="n">created_at</span>
+<span class="k">from</span> <span class="k">public</span><span class="p">.</span><span class="n">builder_project_submissions</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">created_at</span> <span class="k">desc</span>
+<span class="k">limit</span> <span class="mi">5</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">user_agent</code> is populated.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">request_origin</code> is populated when submitted from browser.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">request_referer</code> may be populated depending on browser/request context.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">client_ip_hash</code> is populated if the Edge Function sees an IP header and <code class="language-plaintext highlighter-rouge">DID_IP_HASH_SALT</code> is set.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Raw IP address is not stored.</li>
+</ul>
+
+<hr />
+
+<h2 id="10-frontend-browser-cooldown">10. Frontend Browser Cooldown</h2>
+
+<p>After one successful submission:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Try submitting again immediately from the same browser.</li>
+</ul>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Frontend blocks rapid resubmission for around 60 seconds.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />User sees a friendly message.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend duplicate rules still protect the database if frontend is bypassed.</li>
+</ul>
+
+<hr />
+
+<h2 id="11-admin-workflow-retest">11. Admin Workflow Retest</h2>
+
+<p>After a successful valid submission:</p>
+
+<h3 id="view-submissions">View submissions</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/view_submissions.py
+python scripts/view_submissions.py <span class="nt">--status</span> submitted
+python scripts/view_submissions.py <span class="nt">--submission-id</span> YOUR_SUBMISSION_UUID
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />New row appears.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Exact lookup works.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Status count/reporting still works.</li>
+</ul>
+
+<h3 id="update-status">Update status</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/update_submission_status.py <span class="nt">--submission-id</span> YOUR_SUBMISSION_UUID <span class="nt">--status</span> approved
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Status updates successfully.</li>
+</ul>
+
+<h3 id="promote-to-builder_projects">Promote to builder_projects</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/promote_builder_project.py <span class="nt">--submission-id</span> YOUR_SUBMISSION_UUID <span class="nt">--public</span>
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Row inserts/updates in <code class="language-plaintext highlighter-rouge">builder_projects</code>.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Submission status becomes <code class="language-plaintext highlighter-rouge">published</code>.</li>
+</ul>
+
+<h3 id="export">Export</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python scripts/export_builder_projects.py <span class="nt">--slug</span> YOUR_PROJECT_SLUG
+</code></pre></div></div>
+
+<p>Expected:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" /><code class="language-plaintext highlighter-rouge">_data/builder_projects.yml</code> updates.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Detail page is generated.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />README rendering still works.</li>
+</ul>
+
+<hr />
+
+<h2 id="12-final-acceptance-criteria">12. Final Acceptance Criteria</h2>
+
+<p>Phase 3B first-layer hardening is ready when:</p>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Valid form submission succeeds.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Preview-before-submit works.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Make Edits returns focus to the form.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Frontend required field validation works.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Backend validation blocks bad payloads.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Honeypot blocks bot-like submissions.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Duplicate README URL is blocked.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Recent exact duplicate is blocked.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Productive multiple-project submissions are allowed.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Metadata columns populate.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Raw IP address is not stored.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Admin scripts still work.</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Publish/export workflow still works.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer" role="contentinfo">
+  <div class="page__footer-inner">
+    <div class="page__footer-grid">
+
+      <!-- LEFT: Title + email + quick links -->
+      <div class="page__footer-col">
+        <h2 class="page__footer-title">Data Inside Data™</h2>
+
+        
+          <p class="page__footer-email">
+            <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a>
+          </p>
+        
+
+    <ul class="page__footer-quicklinks">
+     
+    <li>
+      <a href="/archive/">Archive</a>
+    </li>
+        
+    <li>
+      <a href="/sitemap.xml">Sitemap</a>
+    </li>
+        
+    <li>
+      <a href="/feed.xml">RSS</a>
+    </li>
+        
+     </ul>
+
+      </div>
+
+      <!-- MIDDLE: Social links (MM style) -->
+      <div class="page__footer-col">
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            
+              
+                
+                  <li>
+                    <a href="https://github.com/dataeden" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="mailto:contact@datainsidedata.com" rel="nofollow noopener noreferrer">
+                      <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="https://www.linkedin.com/" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+                
+              
+            
+
+            
+              <li>
+                <a href="/feed.xml">
+                  <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+                  <span class="label">Feed</span>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Description -->
+      <div class="page__footer-col">
+        
+          <p class="page__footer-desc">The Tech Hands blog: insights, tools, and stories from DataInsideData.</p>
+        
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar (your DID style) -->
+    <div class="footer-bottom">
+      <p class="footer-bottom__copyright">
+        © 2026 Data Inside Data™. All rights reserved.
+      </p>
+
+      <p class="footer-bottom__powered">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>,
+        <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>, and
+        <a href="https://aws.amazon.com/route53/" target="_blank" rel="noopener">AWS Route 53</a>.
+      </p>
+
+      <p class="footer-bottom__legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-bottom__sep">•</span>
+        <a href="/terms/">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>

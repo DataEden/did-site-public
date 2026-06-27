@@ -1,0 +1,855 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Data Inside Data™</title>
+<meta name="description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Data Inside Data™">
+<meta property="og:url" content="https://datainsidedata.com/docs/notes/builder_showcase_readme_readiness_research/">
+
+
+  <meta property="og:description" content="The Tech Hands blog: insights, tools, and stories from DataInsideData.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/docs/notes/builder_showcase_readme_readiness_research/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    
+<link rel="icon" type="image/png" href="/assets/images/imgs/site-icon-512.png">
+
+<link rel="icon" type="image/x-icon" href="/assets/images/imgs/favicon.ico">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/imgs/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/imgs/favicon-16.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/imgs/apple-touch-icon-180.png">
+ 
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/FuturisticBrand.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="builder-showcase-readme-readiness-research">Builder Showcase README Readiness Research</h1>
+
+<h2 id="purpose">Purpose</h2>
+
+<p>This component extends the Builder Showcase project by using a GitHub README dataset as a research baseline for project-readiness analysis.</p>
+
+<p>The goal is to score a sample of public GitHub READMEs using the same or similar readiness rubric used in the Builder Showcase review pipeline. This allows the project to compare general public GitHub documentation quality against Builder Showcase submissions over time.</p>
+
+<p>In plain terms:</p>
+
+<blockquote>
+  <p>Builder Showcase is not only reviewing projects. It is building evidence around what makes a project understandable, credible, and ready to be used as proof of skill.</p>
+</blockquote>
+
+<h2 id="value-proposition-mindset">Value Proposition Mindset</h2>
+
+<p>GitHub contains millions of public projects, but a public repository is not automatically a clear, complete, or credible portfolio asset.</p>
+
+<p>Many repositories may contain useful work, but reviewers, recruiters, collaborators, and funders often need more than code. They need to understand:</p>
+
+<ul>
+  <li>What the project does</li>
+  <li>Why it matters</li>
+  <li>How to run or use it</li>
+  <li>What problem it solves</li>
+  <li>What tools and methods were used</li>
+  <li>Whether the project is active</li>
+  <li>Whether it has results, screenshots, tests, or documentation</li>
+  <li>Whether it is ready to be evaluated as proof of skill</li>
+</ul>
+
+<p>Builder Showcase addresses the gap between:</p>
+
+<blockquote>
+  <p>A project exists on GitHub.</p>
+</blockquote>
+
+<p>and</p>
+
+<blockquote>
+  <p>A project is understandable, reviewable, and credible as evidence of technical ability.</p>
+</blockquote>
+
+<p>The README Readiness Research component helps quantify that gap.</p>
+
+<h2 id="core-product-argument">Core Product Argument</h2>
+
+<p>The central product argument is:</p>
+
+<blockquote>
+  <p>Public GitHub repositories are abundant, but project-readiness is uneven. Builder Showcase adds a structured proof layer that evaluates and improves how technical work is presented, documented, and interpreted.</p>
+</blockquote>
+
+<p>This research component supports that argument with data.</p>
+
+<h2 id="research-questions">Research Questions</h2>
+
+<p>This analysis is designed to answer questions such as:</p>
+
+<ol>
+  <li>What percentage of sampled public repositories have a README?</li>
+  <li>What percentage of READMEs are thin, semi-complete, strong, or showcase-ready?</li>
+  <li>Which README sections are most commonly missing?</li>
+  <li>How often do public READMEs include setup, usage, screenshots, tests, results, architecture, or deployment information?</li>
+  <li>How does README readiness vary by language, stars, forks, activity, or project age?</li>
+  <li>How do public GitHub README readiness scores compare to Builder Showcase submissions?</li>
+  <li>Do Builder Showcase users improve their readiness over time after review or feedback?</li>
+</ol>
+
+<h2 id="current-starting-point">Current Starting Point</h2>
+
+<p>The first CSV has already been created:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>github_readme_readiness_scores.csv
+</code></pre></div></div>
+
+<p>This file should act as the first research output and scoring dataset.</p>
+
+<p>At the notebook stage, the CSV-first approach is preferred because it allows the rubric, scoring logic, columns, and analysis outputs to be tested before importing anything into Supabase.</p>
+
+<h2 id="recommended-workflow">Recommended Workflow</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GitHub README sample
+        ↓
+Fetch README metadata and/or README content
+        ↓
+Apply Builder Showcase scoring rubric
+        ↓
+Save results to github_readme_readiness_scores.csv
+        ↓
+Analyze readiness patterns in notebook
+        ↓
+Create charts, summary tables, and product insights
+        ↓
+If results are useful, import cleaned version into Supabase
+        ↓
+Compare public GitHub baseline against Builder Showcase submissions
+</code></pre></div></div>
+
+<h2 id="why-csv-first">Why CSV First</h2>
+
+<p>The CSV-first approach keeps the research flexible and safe.</p>
+
+<p>Benefits:</p>
+
+<ul>
+  <li>No production database changes during early experimentation</li>
+  <li>Easy to inspect scoring outputs manually</li>
+  <li>Easier to tune rubric weights</li>
+  <li>Easy to rerun notebooks</li>
+  <li>Simple to version the dataset</li>
+  <li>Cleaner Supabase import later</li>
+  <li>Better separation between research data and Builder Showcase user/submission data</li>
+</ul>
+
+<p>The early CSV should be treated as a research artifact, not yet as product data.</p>
+
+<h2 id="suggested-csv-columns">Suggested CSV Columns</h2>
+
+<p>Recommended columns for <code class="language-plaintext highlighter-rouge">github_readme_readiness_scores.csv</code>:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sample_id
+sample_date
+repo_full_name
+owner
+repo_name
+repo_url
+source
+language
+stars
+forks
+watchers
+open_issues
+created_at
+updated_at
+pushed_at
+has_readme
+readme_fetch_status
+readme_word_count
+readme_char_count
+rubric_version
+readme_score
+readiness_level
+overview_score
+setup_score
+usage_score
+features_score
+visuals_score
+architecture_score
+data_methods_score
+results_score
+tests_score
+license_score
+deployment_score
+contact_score
+sections_found
+sections_missing
+notes
+</code></pre></div></div>
+
+<p>The most important long-term column is:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rubric_version
+</code></pre></div></div>
+
+<p>This allows scoring changes to be tracked over time.</p>
+
+<p>Example rubric versions:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>builder_showcase_readme_v1
+builder_showcase_readme_v1_1
+builder_showcase_readme_v2
+</code></pre></div></div>
+
+<h2 id="readiness-levels">Readiness Levels</h2>
+
+<p>Recommended scoring levels:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>90–100: showcase_ready
+75–89: strong
+50–74: semi_ready
+25–49: thin
+1–24: minimal
+0: missing
+</code></pre></div></div>
+
+<p>These levels should support both analysis and product language.</p>
+
+<p>For external-facing summaries, the categories can be simplified:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>showcase_ready
+strong
+semi_ready
+not_ready
+missing
+</code></pre></div></div>
+
+<h2 id="readme-rubric-categories">README Rubric Categories</h2>
+
+<p>The Builder Showcase scoring structure can be reused or adapted to score public README samples.</p>
+
+<p>Suggested categories:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Why it matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Overview</td>
+      <td>Explains what the project is</td>
+    </tr>
+    <tr>
+      <td>Problem / purpose</td>
+      <td>Explains why the project exists</td>
+    </tr>
+    <tr>
+      <td>Setup / installation</td>
+      <td>Shows whether others can run it</td>
+    </tr>
+    <tr>
+      <td>Usage</td>
+      <td>Shows how the project is used</td>
+    </tr>
+    <tr>
+      <td>Features</td>
+      <td>Explains core capabilities</td>
+    </tr>
+    <tr>
+      <td>Screenshots / visuals</td>
+      <td>Helps reviewers understand quickly</td>
+    </tr>
+    <tr>
+      <td>Architecture / workflow</td>
+      <td>Shows technical structure</td>
+    </tr>
+    <tr>
+      <td>Data / methods</td>
+      <td>Important for data, AI, and analytics projects</td>
+    </tr>
+    <tr>
+      <td>Results / findings</td>
+      <td>Shows outcomes and impact</td>
+    </tr>
+    <tr>
+      <td>Tests / validation</td>
+      <td>Signals engineering maturity</td>
+    </tr>
+    <tr>
+      <td>License</td>
+      <td>Supports reuse and open-source clarity</td>
+    </tr>
+    <tr>
+      <td>Deployment / demo</td>
+      <td>Shows product readiness</td>
+    </tr>
+    <tr>
+      <td>Contact / author</td>
+      <td>Supports attribution and follow-up</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="analysis-outputs">Analysis Outputs</h2>
+
+<p>The notebook should produce summary outputs such as:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>README existence rate
+Average README score
+Median README score
+Readiness level distribution
+Most common missing sections
+README score by language
+README score by stars/forks
+README score by recent activity
+README score by project age
+Top examples of strong READMEs
+Common patterns in thin or missing READMEs
+</code></pre></div></div>
+
+<p>Useful product-facing metrics:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>% of sampled repos with README
+% of sampled repos with setup instructions
+% of sampled repos with usage examples
+% of sampled repos with screenshots or diagrams
+% of sampled repos with tests or validation
+% of sampled repos with results or findings
+% of sampled repos that are showcase_ready
+</code></pre></div></div>
+
+<h2 id="product-insight-framing">Product Insight Framing</h2>
+
+<p>The analysis should be translated into value-proposition insights.</p>
+
+<p>Example:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In a sampled set of public GitHub repositories, many projects had some documentation, but fewer included the full set of sections needed for reviewability, reproducibility, and portfolio readiness.
+</code></pre></div></div>
+
+<p>Example:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The most common gaps were setup instructions, screenshots, results, and testing details. These are exactly the kinds of gaps Builder Showcase is designed to identify and improve.
+</code></pre></div></div>
+
+<p>Example:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Builder Showcase can help turn raw repository links into structured evidence of project quality, completeness, and technical communication.
+</code></pre></div></div>
+
+<h2 id="future-supabase-integration">Future Supabase Integration</h2>
+
+<p>If the notebook analysis produces useful results, the cleaned dataset can be imported into Supabase using research-specific tables.</p>
+
+<p>Recommended research tables:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>github_repo_samples
+github_readme_scores
+github_readme_rubric_versions
+</code></pre></div></div>
+
+<p>These should remain separate from production Builder Showcase submission tables.</p>
+
+<p>Later, the platform can compare:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Public GitHub baseline
+        vs.
+Builder Showcase submitted projects
+        vs.
+Builder Showcase approved/published projects
+        vs.
+Builder Showcase post-review improved projects
+</code></pre></div></div>
+
+<h2 id="suggested-supabase-purpose">Suggested Supabase Purpose</h2>
+
+<p>The Supabase layer should support business intelligence, not just storage.</p>
+
+<p>Potential uses:</p>
+
+<ul>
+  <li>Track public README readiness trends over time</li>
+  <li>Compare Builder Showcase users against the public baseline</li>
+  <li>Measure improvement after feedback</li>
+  <li>Generate product impact metrics</li>
+  <li>Support investor/funder storytelling</li>
+  <li>Support blog posts and public research notes</li>
+  <li>Support dashboard visualizations</li>
+</ul>
+
+<h2 id="product-impact-metrics">Product Impact Metrics</h2>
+
+<p>Once Builder Showcase has users, the following product impact metrics become possible:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Average public GitHub README readiness score
+Average Builder Showcase initial submission score
+Average Builder Showcase approved project score
+Average score improvement after review
+Percentage of users who improve from thin/semi_ready to strong/showcase_ready
+Most common improvements after feedback
+</code></pre></div></div>
+
+<p>Example future claim:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Builder Showcase users improved their average README readiness score from 52/100 at submission to 81/100 after review.
+</code></pre></div></div>
+
+<p>That kind of metric directly supports the product value proposition.</p>
+
+<h2 id="recommended-notebook-readme-section">Recommended Notebook README Section</h2>
+
+<p>This component should be documented either inside the existing notebooks README or as a separate README.</p>
+
+<p>Recommended approach:</p>
+
+<ul>
+  <li>Add a short section to the existing notebooks README for visibility.</li>
+  <li>Create a separate README for the component if the pipeline grows into multiple notebooks, scripts, or datasets.</li>
+</ul>
+
+<p>Suggested component name:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GitHub README Readiness Research
+</code></pre></div></div>
+
+<p>Suggested notebook name:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01_github_readme_readiness_scoring.ipynb
+</code></pre></div></div>
+
+<p>Suggested folder structure:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>notebooks/
+  01_github_readme_readiness_scoring.ipynb
+
+data/
+  raw/
+    readmes/
+  processed/
+    github_readme_readiness_scores.csv
+
+src/
+  readme_fetcher.py
+  readme_scorer.py
+  readiness_analysis.py
+
+docs/
+  github_readme_readiness_research.md
+</code></pre></div></div>
+
+<h2 id="immediate-build-steps">Immediate Build Steps</h2>
+
+<ol>
+  <li>Inspect the existing <code class="language-plaintext highlighter-rouge">github_readme_readiness_scores.csv</code>.</li>
+  <li>Confirm the final column names.</li>
+  <li>Convert the Builder Showcase rubric into a reusable scoring function.</li>
+  <li>Apply the scoring function to the first sample.</li>
+  <li>Save the scored CSV.</li>
+  <li>Create summary tables in the notebook.</li>
+  <li>Create initial charts.</li>
+  <li>Review whether the results support the product argument.</li>
+  <li>Tune the scoring rubric if needed.</li>
+  <li>Prepare a clean Supabase import only after the notebook results are stable.</li>
+</ol>
+
+<h2 id="first-milestone">First Milestone</h2>
+
+<p>The first milestone is not Supabase import.</p>
+
+<p>The first milestone is:</p>
+
+<blockquote>
+  <p>A notebook that scores a public GitHub README sample and produces clear readiness statistics that support the Builder Showcase value proposition.</p>
+</blockquote>
+
+<p>Suggested milestone outputs:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>github_readme_readiness_scores.csv
+readiness_level_distribution.csv
+missing_sections_summary.csv
+readme_score_by_language.csv
+readme_score_by_activity.csv
+</code></pre></div></div>
+
+<h2 id="final-direction">Final Direction</h2>
+
+<p>This component strengthens Builder Showcase by turning the review pipeline into a research-backed product intelligence system.</p>
+
+<p>It helps prove that Builder Showcase is not only a submission platform. It is a structured proof layer that can evaluate project readiness, identify documentation gaps, and measure improvement over time.</p>
+
+<p>The long-term opportunity is to show that Builder Showcase helps builders move from:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public but unclear
+</code></pre></div></div>
+
+<p>to:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reviewable, explainable, and showcase-ready
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="page__footer" role="contentinfo">
+  <div class="page__footer-inner">
+    <div class="page__footer-grid">
+
+      <!-- LEFT: Title + email + quick links -->
+      <div class="page__footer-col">
+        <h2 class="page__footer-title">Data Inside Data™</h2>
+
+        
+          <p class="page__footer-email">
+            <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a>
+          </p>
+        
+
+    <ul class="page__footer-quicklinks">
+     
+    <li>
+      <a href="/archive/">Archive</a>
+    </li>
+        
+    <li>
+      <a href="/sitemap.xml">Sitemap</a>
+    </li>
+        
+    <li>
+      <a href="/feed.xml">RSS</a>
+    </li>
+        
+     </ul>
+
+      </div>
+
+      <!-- MIDDLE: Social links (MM style) -->
+      <div class="page__footer-col">
+        <div class="page__footer-follow">
+          <ul class="social-icons">
+            
+              
+                
+                  <li>
+                    <a href="https://github.com/dataeden" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="mailto:contact@datainsidedata.com" rel="nofollow noopener noreferrer">
+                      <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+                      <span class="label">Email</span>
+                    </a>
+                  </li>
+                
+              
+                
+                  <li>
+                    <a href="https://www.linkedin.com/" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+                      <span class="label">LinkedIn</span>
+                    </a>
+                  </li>
+                
+              
+            
+
+            
+              <li>
+                <a href="/feed.xml">
+                  <i class="fas fa-fw fa-rss-square" aria-hidden="true"></i>
+                  <span class="label">Feed</span>
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: Description -->
+      <div class="page__footer-col">
+        
+          <p class="page__footer-desc">The Tech Hands blog: insights, tools, and stories from DataInsideData.</p>
+        
+      </div>
+
+    </div>
+
+    <!-- Footer bottom bar (your DID style) -->
+    <div class="footer-bottom">
+      <p class="footer-bottom__copyright">
+        © 2026 Data Inside Data™. All rights reserved.
+      </p>
+
+      <p class="footer-bottom__powered">
+        Powered by
+        <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>,
+        <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>, and
+        <a href="https://aws.amazon.com/route53/" target="_blank" rel="noopener">AWS Route 53</a>.
+      </p>
+
+      <p class="footer-bottom__legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <span class="footer-bottom__sep">•</span>
+        <a href="/terms/">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>
