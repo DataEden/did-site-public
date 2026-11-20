@@ -1,0 +1,654 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Privacy Policy - Data Inside Data™</title>
+<meta name="description" content="A builder workspace for learning, documenting, analyzing, and showcasing real technical work.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="Privacy Policy">
+<meta property="og:url" content="https://datainsidedata.com/privacy/">
+
+
+  <meta property="og:description" content="A builder workspace for learning, documenting, analyzing, and showcasing real technical work.">
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/privacy/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0", viewport-fit="cover">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!--dark mode configuration script-->
+<script>
+    (function () {
+        const storageKey = "did-theme";
+
+        try {
+            const savedTheme = localStorage.getItem(storageKey);
+
+            const prefersDark = window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+            const theme =
+                savedTheme === "light" || savedTheme === "dark"
+                    ? savedTheme
+                    : prefersDark
+                        ? "dark"
+                        : "light";
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                theme
+            );
+        } catch (error) {
+            /*
+             * localStorage may be unavailable in restricted environments.
+             * Fall back to the user's operating-system preference.
+             */
+            const prefersDark = window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                prefersDark ? "dark" : "light"
+            );
+        }
+    })();
+</script>
+
+<!-- =========================================================================
+     Data Inside Data™ v3
+     Theme-aware brand assets
+     ========================================================================= -->
+<script>
+    window.DID_THEME_ASSETS = {
+        logoLight: "/assets/images/logos/did-logo-on-light.png",
+        logoDark: "/assets/images/logos/did-logo-on-dark.png"
+    };
+</script>
+
+<!-- =========================================================
+     Data Inside Data™ — Favicons and app icons
+
+     Use Jekyll's relative_url filter for every local asset so
+     icons resolve correctly on both production and GitHub Pages
+     staging deployments with a non-empty baseurl.
+     ========================================================= -->
+
+<!-- Data Inside Data™ primary browser favicon -->
+<link rel="icon" type="image/png" sizes="32x32"
+   href="/assets/images/logos/did-nested-blue-32.png">
+
+     <!-- Legacy desktop/browser fallback -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/assets/images/logos/did-nested-blue-favicon-32.ico">
+
+<!-- Standard browser favicon sizes -->
+<link rel="icon" type="image/png" sizes="48x48"
+    href="/assets/images/logos/did-nested-blue-48.png">
+
+<!-- Legacy desktop/browser fallback -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/assets/images/logos/did-nested-blue-favicon-48.ico">
+
+    <!-- 16x16-resolution ico icon -->
+<link rel="icon" type="image/x-icon" sizes="16x16"
+    href="/assets/images/logos/did-nested-blue-16.png">
+
+<!-- Legacy desktop/browser fallback -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/assets/images/logos/did-nested-blue-favicon-16.ico">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180"
+    href="/assets/images/logos/did-apple-touch-nested-blue-180.png">
+
+<!-- Legacy desktop/browser fallback -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/assets/images/logos/did-apple-touch-nested-blue-favicon-180.ico">
+
+<!--Data Inside Data™ v3:
+     Loads the global top/bottom page-controls behavior.
+     `relative_url` preserves correct paths across production and staging,
+     while `defer` waits until HTML parsing is complete before execution. -->
+<script src="/assets/js/did-page-controls.js" defer>
+</script>
+
+<!-- Data Inside Data™ v3:
+     Loads the optional scroll-reveal motion system.
+     `relative_url` preserves production/staging paths and `defer` prevents
+     the script from blocking initial HTML parsing. -->
+<script src="/assets/js/did-motion.js" defer>
+</script>
+
+<!-- Data Inside Data™ v3:
+     Coordinates sticky article TOCs with the persistent DID masthead.
+     The script dynamically measures masthead height so article navigation
+     remains aligned across responsive viewport sizes. -->
+<script src="/assets/js/did-article-toc.js" defer>
+</script>
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/did-logo-on-light.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Privacy Policy">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://datainsidedata.com/privacy/" itemprop="url">Privacy Policy
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Effective Date: March 2026</p>
+
+<p>DataInsideData™ LLC (“we”, “our”, or “us”) respects your privacy. This Privacy Policy explains how information is collected and used when you visit this website.</p>
+
+<h2 id="information-we-collect">Information We Collect</h2>
+
+<p>We may collect limited technical information automatically when you visit the site, including:</p>
+
+<ul>
+  <li>IP address (anonymized where applicable)</li>
+  <li>Browser type and version</li>
+  <li>Device type</li>
+  <li>Pages visited</li>
+  <li>Time spent on pages</li>
+  <li>Referring websites</li>
+</ul>
+
+<p>This information is collected for analytics and performance improvement purposes.</p>
+
+<p>We do not collect personally identifiable information unless you voluntarily provide it (for example, by emailing us).</p>
+
+<h2 id="analytics">Analytics</h2>
+
+<p>We use <strong>Google Analytics 4 (GA4)</strong> to understand how visitors interact with our website.</p>
+
+<p>Google Analytics may use cookies and similar technologies to collect usage data. This information helps us analyze traffic patterns and improve the site experience.</p>
+
+<p>For more information on how Google processes data, visit:
+<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+
+<p>You can opt out of Google Analytics tracking by using the Google Analytics Opt-out Browser Add-on:
+<a href="https://tools.google.com/dlpage/gaoptout">https://tools.google.com/dlpage/gaoptout</a></p>
+
+<h2 id="cookies">Cookies</h2>
+
+<p>This site may use cookies for:</p>
+
+<ul>
+  <li>Analytics</li>
+  <li>Performance monitoring</li>
+  <li>Basic site functionality</li>
+</ul>
+
+<p>You can control or disable cookies through your browser settings.</p>
+
+<h2 id="third-party-services">Third-Party Services</h2>
+
+<p>We may link to or embed third-party services. We are not responsible for the privacy practices of those external sites.</p>
+
+<h2 id="data-security">Data Security</h2>
+
+<p>We take the security of our website and its supporting infrastructure seriously and apply appropriate safeguards to protect against unauthorized access or misuse.</p>
+
+<p>As with any internet-based service, inherent risks exist; however, we actively work to maintain a secure and resilient platform.</p>
+
+<h2 id="your-rights">Your Rights</h2>
+
+<p>Depending on your location (including the EU or California), you may have rights under:</p>
+
+<ul>
+  <li>General Data Protection Regulation (GDPR)</li>
+  <li>California Consumer Privacy Act (CCPA)</li>
+</ul>
+
+<p>If you wish to request data access or deletion, contact us using the information below.</p>
+
+<h2 id="contact">Contact</h2>
+
+<p>For privacy-related questions:</p>
+
+<p>📧 <a href="mailto:contact@datainsidedata.com">contact@datainsidedata.com</a></p>
+
+<hr />
+
+<p><strong>Data Inside Data™.</strong></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        
+<!-- Data Inside Data™ global page controls -->
+<!-- =========================================================================
+     Data Inside Data™ LLC
+     File: page-controls.html
+     Author: <your name>
+     Introduced: November 2026
+
+     Purpose:
+     Renders reusable global top/bottom with quick movement button navigation controls. JavaScript 
+     handles scrolling while preserving reduced-motion accessibility preferences.
+
+     Part of:
+     Data Inside Data™ v3 UI System Global Page Controls
+
+     ========================================================================= -->   
+
+<div class="did-page-controls">
+
+    <button class="did-page-control did-page-control--up" type="button" data-scroll-target="top"
+        aria-label="Scroll to top" title="Scroll to top">
+        ↑
+    </button>
+
+    <button class="did-page-control did-page-control--down" type="button" data-scroll-target="bottom"
+        aria-label="Scroll to bottom" title="Scroll to bottom">
+        ↓
+    </button>
+
+</div>
+        <footer class="did-footer">
+
+  <div class="did-footer__grid">
+
+    <!-- ===============================================================
+         Brand / Mission
+         =============================================================== -->
+    <section class="did-footer__brand">
+
+      <a class="did-footer__brand-name" href="/">
+        Data Inside Data™
+      </a>
+
+      <p class="did-footer__mission">
+        Making technology more understandable through real builds,
+        practical learning, documentation, experimentation, and
+        community-centered exploration.
+      </p>
+
+      <p class="did-footer__tagline">
+        Tech Hands, a Science Mind, and a Heart for Community™
+      </p>
+
+      <p class="did-footer__principle">
+        Build. Understand. Document. Share. Keep learning.
+      </p>
+
+    </section>
+
+
+    <!-- ===============================================================
+         Explore
+         =============================================================== -->
+    <nav class="did-footer__section" aria-label="Explore">
+
+      <h2 class="did-footer__heading">Explore</h2>
+
+      <a href="/">Start Here</a>
+      <a href="/projects/">Projects</a>
+      <a href="/blog/">Posts</a>
+      <a href="/how-tos/">How Tos</a>
+      <a href="/fixes/">Fixes</a>
+
+    </nav>
+
+
+    <!-- ===============================================================
+         Platform
+         =============================================================== -->
+    <nav class="did-footer__section" aria-label="About Data Inside Data">
+
+      <h2 class="did-footer__heading">Platform</h2>
+
+      <a href="/about/">About</a>
+      <a href="/mission/">Mission</a>
+      <a href="/archive/">Archive</a>
+
+    </nav>
+
+
+    <!-- ===============================================================
+         Connect
+         =============================================================== -->
+    <nav class="did-footer__section" aria-label="Contact and social links">
+
+      <h2 class="did-footer__heading">Connect</h2>
+
+      <a href="/contact/">
+        Contact
+      </a>
+
+      
+      
+      
+
+      <a class="did-footer__social-link" href="https://github.com/dataeden"  target="_blank"
+        rel="noopener noreferrer" >
+
+        
+        <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+        
+
+        <span>
+          GitHub
+        </span>
+
+      </a>
+
+      
+      
+      
+
+      <a class="did-footer__social-link" href="mailto:contact@datainsidedata.com" >
+
+        
+        <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+        
+
+        <span>
+          Email
+        </span>
+
+      </a>
+
+      
+      
+      
+
+      <a class="did-footer__social-link" href="https://www.linkedin.com/"  target="_blank"
+        rel="noopener noreferrer" >
+
+        
+        <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+        
+
+        <span>
+          LinkedIn
+        </span>
+
+      </a>
+
+      
+      
+      
+
+      <!-- RSS / Atom feed -->
+      <a class="did-footer__social-link" href="/feed.xml">
+        <i class="fas fa-fw fa-rss" aria-hidden="true"></i>
+
+        <span>Feed</span>
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- ===============================================================
+       Footer Bottom Bar
+       =============================================================== -->
+  <div class="did-footer__bottom">
+
+    <p class="did-footer__copyright">
+      &copy; 2026 Data Inside Data™ LLC
+    </p>
+
+    <div class="did-footer__legal">
+
+      <a href="/privacy/">
+        Privacy
+      </a>
+
+      <a href="/terms/">
+        Terms
+      </a>
+
+    </div>
+
+    <p class="did-footer__platform">
+      Powered by Jekyll · GitHub Pages · Amazon Route 53
+    </p>
+
+  </div>
+
+</footer>
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>

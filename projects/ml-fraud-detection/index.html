@@ -1,0 +1,1081 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>AI/ML Fraud Detection Modeling - Data Inside Data™</title>
+<meta name="description" content="An applied machine learning case study focused on fraud detection, imbalanced classification, feature preparation, and model evaluation.">
+
+
+  <meta name="author" content="Fari Lindo">
+  
+  <meta property="article:author" content="Fari Lindo">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Inside Data™">
+<meta property="og:title" content="AI/ML Fraud Detection Modeling">
+<meta property="og:url" content="https://datainsidedata.com/projects/ml-fraud-detection/">
+
+
+  <meta property="og:description" content="An applied machine learning case study focused on fraud detection, imbalanced classification, feature preparation, and model evaluation.">
+
+
+
+  <meta property="og:image" content="https://datainsidedata.com/assets/images/projects/cards/bank-fraud-detection-card.webp">
+
+
+
+
+
+  <meta property="article:published_time" content="2026-11-20T04:20:57+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://datainsidedata.com/projects/ml-fraud-detection/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Inside Data™ Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0", viewport-fit="cover">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!--dark mode configuration script-->
+<script>
+    (function () {
+        const storageKey = "did-theme";
+
+        try {
+            const savedTheme = localStorage.getItem(storageKey);
+
+            const prefersDark = window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+            const theme =
+                savedTheme === "light" || savedTheme === "dark"
+                    ? savedTheme
+                    : prefersDark
+                        ? "dark"
+                        : "light";
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                theme
+            );
+        } catch (error) {
+            /*
+             * localStorage may be unavailable in restricted environments.
+             * Fall back to the user's operating-system preference.
+             */
+            const prefersDark = window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                prefersDark ? "dark" : "light"
+            );
+        }
+    })();
+</script>
+
+<!-- =========================================================================
+     Data Inside Data™ v3
+     Theme-aware brand assets
+     ========================================================================= -->
+<script>
+    window.DID_THEME_ASSETS = {
+        logoLight: "/assets/images/logos/did-logo-on-light.png",
+        logoDark: "/assets/images/logos/did-logo-on-dark.png"
+    };
+</script>
+
+<!-- =========================================================
+     Data Inside Data™ — Favicons and app icons
+
+     Use Jekyll's relative_url filter for every local asset so
+     icons resolve correctly on both production and GitHub Pages
+     staging deployments with a non-empty baseurl.
+     ========================================================= -->
+
+<!-- Data Inside Data™ primary browser favicon -->
+<link rel="icon" type="image/png" sizes="32x32"
+   href="/assets/images/logos/did-nested-blue-32.png">
+
+     <!-- Legacy desktop/browser fallback -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/assets/images/logos/did-nested-blue-favicon-32.ico">
+
+<!-- Standard browser favicon sizes -->
+<link rel="icon" type="image/png" sizes="48x48"
+    href="/assets/images/logos/did-nested-blue-48.png">
+
+<!-- Legacy desktop/browser fallback -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/assets/images/logos/did-nested-blue-favicon-48.ico">
+
+    <!-- 16x16-resolution ico icon -->
+<link rel="icon" type="image/x-icon" sizes="16x16"
+    href="/assets/images/logos/did-nested-blue-16.png">
+
+<!-- Legacy desktop/browser fallback -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/assets/images/logos/did-nested-blue-favicon-16.ico">
+
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180"
+    href="/assets/images/logos/did-apple-touch-nested-blue-180.png">
+
+<!-- Legacy desktop/browser fallback -->
+<link rel="shortcut icon" type="image/x-icon"
+    href="/assets/images/logos/did-apple-touch-nested-blue-favicon-180.ico">
+
+<!--Data Inside Data™ v3:
+     Loads the global top/bottom page-controls behavior.
+     `relative_url` preserves correct paths across production and staging,
+     while `defer` waits until HTML parsing is complete before execution. -->
+<script src="/assets/js/did-page-controls.js" defer>
+</script>
+
+<!-- Data Inside Data™ v3:
+     Loads the optional scroll-reveal motion system.
+     `relative_url` preserves production/staging paths and `defer` prevents
+     the script from blocking initial HTML parsing. -->
+<script src="/assets/js/did-motion.js" defer>
+</script>
+
+<!-- Data Inside Data™ v3:
+     Coordinates sticky article TOCs with the persistent DID masthead.
+     The script dynamically measures masthead height so article navigation
+     remains aligned across responsive viewport sizes. -->
+<script src="/assets/js/did-article-toc.js" defer>
+</script>
+  </head>
+
+  <body class="layout--single did-project did-sticky-nav" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logos/did-logo-on-light.png" alt="Data Inside Data™"></a>
+        
+        <a class="site-title" href="/">
+          Data Inside Data™
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/"
+                
+                
+              >Start Here</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/projects/"
+                
+                
+              >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/how-tos/"
+                
+                
+              >How Tos</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/fixes/"
+                
+                
+              >Fixes</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/contact/"
+                
+                
+              >Contact</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="AI/ML Fraud Detection Modeling">
+    <meta itemprop="description" content="An applied machine learning case study focused on fraud detection, imbalanced classification, feature preparation, and model evaluation.">
+    <meta itemprop="datePublished" content="2026-11-20T04:20:57+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://datainsidedata.com/projects/ml-fraud-detection/" itemprop="url">AI/ML Fraud Detection Modeling
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <div class="did-project-intro">
+
+<p class="did-project-intro__eyebrow">
+Applied Machine Learning · Classification + Risk
+</p>
+
+<p class="did-project-intro__summary">
+An applied machine learning case study focused on fraud detection,
+imbalanced classification, feature preparation, model comparison, and
+evaluation in a high-risk financial context.
+</p>
+
+<div class="did-project-intro__actions">
+
+<a class="did-project-action did-project-action--primary" href="https://github.com/DataEden/fari-tech-portfolio/tree/main/applied-data-science-machine-learning/ml-fraud-detection" target="_blank" rel="noopener noreferrer">
+View Repository
+</a>
+
+<a class="did-project-action" href="#fraud-modeling" data-did-scroll="" data-scroll-ignore="">
+Explore Modeling
+</a>
+
+</div>
+
+</div>
+
+<div class="did-callout did-callout-repo">
+
+<strong>📦 Repository Structure</strong>
+
+<p>
+This project is maintained within the broader
+<strong>DataInsideData technical portfolio monorepo</strong>.
+</p>
+
+<p>
+The project implementation, notebooks, charts, and supporting documentation
+live in:
+</p>
+
+<p>
+<code>applied-data-science-machine-learning/ml-fraud-detection/</code>
+</p>
+
+<p>
+within:
+<a href="https://github.com/DataEden/fari-tech-portfolio" target="_blank" rel="noopener noreferrer">
+DataEden / fari-tech-portfolio
+</a>
+</p>
+
+<p>
+The project documents an applied fraud-detection workflow built around
+exploratory analysis, preprocessing, imbalanced classification, model
+comparison, and evaluation.
+</p>
+
+</div>
+
+<div class="did-callout did-callout-architecture">
+
+<strong>🏗️ Documentation Architecture</strong>
+
+<p>
+The technical documentation presented later on this page is dynamically
+rendered from the project's repository README.
+</p>
+
+<p>
+The repository remains the <strong>single source of truth</strong> for project
+documentation while DataInsideData.com provides the presentation layer for
+structured browsing, technical explanation, and portfolio storytelling.
+</p>
+
+<p>
+This model keeps notebooks, analytical outputs, implementation details, and
+public-facing documentation aligned as the project evolves.
+</p>
+
+</div>
+
+<section class="did-project-section">
+
+<div id="fraud-modeling" class="did-project-section-heading">
+
+<p class="did-project-section-heading__eyebrow">
+Machine Learning Workflow
+</p>
+
+<h2>How the Fraud Detection Analysis Works</h2>
+
+<p>
+The project moves from simulated transaction data through exploratory analysis,
+feature preparation, imbalanced classification, model comparison, and
+evaluation using metrics better suited to rare-event detection.
+</p>
+
+</div>
+
+
+<div class="did-project-system-grid">
+
+<article class="did-project-system-panel">
+
+<p class="did-project-system-panel__label">
+💳 Data Foundation
+</p>
+
+<h3>Transaction-Level Inputs</h3>
+
+<p>
+The project uses a large simulated financial transaction dataset designed for
+fraud-detection analysis.
+</p>
+
+<ul>
+<li>Transaction type</li>
+<li>Transaction amount</li>
+<li>Origin account balances</li>
+<li>Destination account balances</li>
+<li><code>IsFlaggedFraud</code> indicator</li>
+<li><code>IsFraud</code> target label</li>
+</ul>
+
+<p>
+These fields provide the basis for exploratory analysis, feature preparation,
+classification experiments, and fraud-pattern investigation.
+</p>
+
+</article>
+
+
+<article class="did-project-system-panel">
+
+<p class="did-project-system-panel__label">
+🧹 Feature Preparation
+</p>
+
+<h3>Modeling-Ready Data</h3>
+
+<p>
+Raw transactional fields are explored and transformed before model training so
+the dataset can support reproducible classification experiments.
+</p>
+
+<p>
+The workflow includes preprocessing, feature preparation, inspection of fraud
+patterns, and consideration of the severe class imbalance between legitimate
+and fraudulent transactions.
+</p>
+
+</article>
+
+
+<article class="did-project-system-panel">
+
+<p class="did-project-system-panel__label">
+🤖 Modeling
+</p>
+
+<h3>Imbalanced Classification</h3>
+
+<p>
+Classification models are trained and compared under conditions where
+fraudulent observations represent only a small portion of the complete
+transaction dataset.
+</p>
+
+<p>
+The project includes comparison of modeling approaches with and without
+<strong>SMOTE</strong> to study how imbalance-handling strategies affect
+fraud-detection behavior.
+</p>
+
+</article>
+
+
+<article class="did-project-system-panel">
+
+<p class="did-project-system-panel__label">
+📈 Evaluation
+</p>
+
+<h3>Beyond Accuracy</h3>
+
+<p>
+Because fraud is a rare-event classification problem, overall accuracy can
+hide poor detection performance.
+</p>
+
+<p>
+Evaluation therefore emphasizes:
+</p>
+
+<ul>
+<li>Precision</li>
+<li>Recall</li>
+<li>Sensitivity</li>
+<li>Confusion-matrix behavior</li>
+<li>With-SMOTE vs. without-SMOTE comparison</li>
+</ul>
+
+</article>
+
+</div>
+
+</section>
+
+<section class="did-project-section">
+
+<div class="did-project-section-heading">
+
+<p class="did-project-section-heading__eyebrow">
+Modeling Insight
+</p>
+
+<h2>Fraud Detection as a Business-Sensitive Classification Problem</h2>
+
+<p>
+The project treats model evaluation as more than a search for the highest
+headline accuracy score.
+</p>
+
+</div>
+
+
+<div class="did-callout did-callout-insight">
+
+<strong>🧠 Why Accuracy Is Not Enough</strong>
+
+<p>
+Fraudulent transactions are rare relative to legitimate activity. A model can
+therefore achieve high overall accuracy while still failing to identify the
+events that matter most.
+</p>
+
+<p>
+The analysis emphasizes precision, recall, sensitivity, confusion-matrix
+behavior, and imbalance-aware model comparison to better evaluate practical
+fraud-detection usefulness.
+</p>
+
+<p>
+This frames fraud detection as a
+<strong>business-sensitive classification problem</strong> in which the cost
+of missed fraud and incorrect fraud flags must be considered alongside model
+performance.
+</p>
+
+</div>
+
+</section>
+
+<section class="did-project-section">
+
+<div class="did-project-section-heading">
+
+<p class="did-project-section-heading__eyebrow">
+Visual Evaluation
+</p>
+
+<h2>Exploratory and Model Diagnostics</h2>
+
+<p>
+The project uses visual analysis to support both exploratory investigation and
+interpretation of model behavior.
+</p>
+
+</div>
+
+
+<div class="did-callout did-callout-visuals">
+
+<strong>📊 Visual Analytics</strong>
+
+<p>
+Project outputs include visual comparisons such as:
+</p>
+
+<ul>
+<li>Naïve fraud flag vs. actual fraud</li>
+<li>Transaction-type distribution by fraud status</li>
+<li>Transaction amount by type</li>
+<li>Final model confusion matrix</li>
+<li>Model comparison with and without SMOTE</li>
+</ul>
+
+<p>
+These visuals provide a clearer connection between transaction patterns,
+classification performance, and the practical behavior of the resulting
+models.
+</p>
+
+</div>
+
+</section>
+
+<section class="did-project-section">
+
+<div class="did-project-section-heading">
+
+<p class="did-project-section-heading__eyebrow">
+Project Source
+</p>
+
+<h2>Repository Documentation</h2>
+
+<p>
+Explore the notebooks, charts, repository assets, and README-backed technical
+documentation supporting the fraud-detection case study.
+</p>
+
+</div>
+
+
+<div class="project-shell" id="project-shell-ml-fraud-detection">
+  <div class="project-meta-card">
+    <h2>ML Fraud Detection</h2>
+    <p>An applied machine learning case study focused on fraud detection, imbalanced classification, preprocessing, model comparison, and evaluation in a high-risk financial context.</p>
+
+    <ul class="project-meta-list">
+     
+    <li>
+    <strong>Notebook:</strong>
+    <a href="https://github.com/DataEden/fari-tech-portfolio/tree/main/applied-data-science-machine-learning/ml-fraud-detection/notebooks" target="_blank" rel="noopener">
+    Open Notebook
+    </a>
+    </li>
+    
+
+    
+    <li>
+    <strong>Repository:</strong>
+    <a href="https://github.com/DataEden/fari-tech-portfolio/tree/main/applied-data-science-machine-learning/ml-fraud-detection" target="_blank" rel="noopener">
+    View on GitHub
+    </a>
+    </li>
+    
+    </ul>
+
+  </div>
+
+  <div id="readme-container-ml-fraud-detection">
+    Loading project documentation...
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+(function() {
+  const id = "ml-fraud-detection";
+  const readmeContainer = document.getElementById(`readme-container-${id}`);
+  const statsContainer = document.getElementById(`repo-stats-${id}`);
+
+  const githubUser = "DataEden";
+  const githubRepo = "fari-tech-portfolio";
+  const readmeUrl = "https://raw.githubusercontent.com/DataEden/fari-tech-portfolio/main/applied-data-science-machine-learning/ml-fraud-detection/README.md";
+  const langOverride = "";
+
+  const repoRawBase = "https://raw.githubusercontent.com/DataEden/fari-tech-portfolio/main/applied-data-science-machine-learning/ml-fraud-detection";
+  const repoBlobBase = "https://github.com/DataEden/fari-tech-portfolio/tree/main/applied-data-science-machine-learning/ml-fraud-detection";
+  const nbviewerBase = "https://nbviewer.org/github/DataEden/fari-tech-portfolio/tree/main/applied-data-science-machine-learning/ml-fraud-detection/notebooks";
+
+  function isRelativePath(path) {
+    return path &&
+      !path.startsWith("http://") &&
+      !path.startsWith("https://") &&
+      !path.startsWith("mailto:") &&
+      !path.startsWith("#") &&
+      !path.startsWith("/");
+  }
+
+  function normalizePath(base, path) {
+    if (!base || !path) return path;
+    return `${base.replace(/\/$/, "")}/${path.replace(/^\.\//, "").replace(/^\//, "")}`;
+  }
+
+  function rewriteLinks(container) {
+    // Rewrite image paths to raw GitHub
+    container.querySelectorAll("img").forEach((img) => {
+      const src = img.getAttribute("src");
+      if (isRelativePath(src)) {
+        img.setAttribute("src", normalizePath(repoRawBase, src));
+      }
+    });
+
+    // Rewrite README links
+    container.querySelectorAll("a").forEach((a) => {
+      const href = a.getAttribute("href");
+      if (!isRelativePath(href)) return;
+
+      const cleanedHref = href.replace(/^\.\//, "");
+
+      // Jupyter notebooks → NBViewer
+      if (cleanedHref.endsWith(".ipynb")) {
+        if (nbviewerBase) {
+          a.setAttribute("href", normalizePath(nbviewerBase, cleanedHref));
+        } else if (repoBlobBase) {
+          a.setAttribute("href", normalizePath(repoBlobBase, cleanedHref));
+        }
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener");
+        return;
+      }
+
+      // Docs/text files → GitHub blob
+      if (
+        cleanedHref.endsWith(".md") ||
+        cleanedHref.endsWith(".txt") ||
+        cleanedHref.endsWith(".pdf")
+      ) {
+        if (repoBlobBase) {
+          a.setAttribute("href", normalizePath(repoBlobBase, cleanedHref));
+        } else {
+          a.setAttribute("href", normalizePath(repoRawBase, cleanedHref));
+        }
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener");
+        return;
+      }
+
+      // Default relative links
+      const base = repoBlobBase || repoRawBase;
+      a.setAttribute("href", normalizePath(base, cleanedHref));
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener");
+    });
+  }
+
+  if (!githubUser || !githubRepo) {
+    statsContainer.innerHTML = "GitHub repository metadata not configured.";
+  } else {
+    fetch(`https://api.github.com/repos/${githubUser}/${githubRepo}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to load GitHub repo metadata.");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const pushedAt = data.pushed_at
+          ? new Date(data.pushed_at).toLocaleDateString()
+          : "Unknown";
+
+        const language = langOverride || data.language || "Not specified";
+
+        statsContainer.innerHTML = `
+          <ul class="project-meta-list">
+            <li><strong>Primary Language:</strong> ${language}</li>
+            <li><strong>Last Updated:</strong> ${pushedAt}</li>
+          </ul>
+        `;
+      })
+      .catch(error => {
+        statsContainer.innerHTML = "Unable to load GitHub metadata.";
+        console.error("GitHub metadata error:", error);
+      });
+  }
+
+  if (!readmeUrl) {
+    readmeContainer.innerHTML = "README URL not provided.";
+    return;
+  }
+
+  fetch(readmeUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to load README.");
+      }
+      return response.text();
+    })
+    .then(markdown => {
+      const html = marked.parse(markdown);
+      readmeContainer.innerHTML = html;
+      rewriteLinks(readmeContainer);
+    })
+    .catch(error => {
+      readmeContainer.innerHTML = "Error loading project documentation.";
+      console.error("README load error:", error);
+    });
+})();
+</script>
+
+</section>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-11-20T04:20:57+00:00">November 20, 2026</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/projects/mina-gerais-coffee-weather-analysis/" class="pagination--pager" title="Coffee Production Weather Analysis">Previous</a>
+    
+    
+      <a href="/projects/us-and-global-economic-health-analysis/" class="pagination--pager" title="Global Economic Health Analysis">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        
+<!-- Data Inside Data™ global page controls -->
+<!-- =========================================================================
+     Data Inside Data™ LLC
+     File: page-controls.html
+     Author: <your name>
+     Introduced: November 2026
+
+     Purpose:
+     Renders reusable global top/bottom with quick movement button navigation controls. JavaScript 
+     handles scrolling while preserving reduced-motion accessibility preferences.
+
+     Part of:
+     Data Inside Data™ v3 UI System Global Page Controls
+
+     ========================================================================= -->   
+
+<div class="did-page-controls">
+
+    <button class="did-page-control did-page-control--up" type="button" data-scroll-target="top"
+        aria-label="Scroll to top" title="Scroll to top">
+        ↑
+    </button>
+
+    <button class="did-page-control did-page-control--down" type="button" data-scroll-target="bottom"
+        aria-label="Scroll to bottom" title="Scroll to bottom">
+        ↓
+    </button>
+
+</div>
+        <footer class="did-footer">
+
+  <div class="did-footer__grid">
+
+    <!-- ===============================================================
+         Brand / Mission
+         =============================================================== -->
+    <section class="did-footer__brand">
+
+      <a class="did-footer__brand-name" href="/">
+        Data Inside Data™
+      </a>
+
+      <p class="did-footer__mission">
+        Making technology more understandable through real builds,
+        practical learning, documentation, experimentation, and
+        community-centered exploration.
+      </p>
+
+      <p class="did-footer__tagline">
+        Tech Hands, a Science Mind, and a Heart for Community™
+      </p>
+
+      <p class="did-footer__principle">
+        Build. Understand. Document. Share. Keep learning.
+      </p>
+
+    </section>
+
+
+    <!-- ===============================================================
+         Explore
+         =============================================================== -->
+    <nav class="did-footer__section" aria-label="Explore">
+
+      <h2 class="did-footer__heading">Explore</h2>
+
+      <a href="/">Start Here</a>
+      <a href="/projects/">Projects</a>
+      <a href="/blog/">Posts</a>
+      <a href="/how-tos/">How Tos</a>
+      <a href="/fixes/">Fixes</a>
+
+    </nav>
+
+
+    <!-- ===============================================================
+         Platform
+         =============================================================== -->
+    <nav class="did-footer__section" aria-label="About Data Inside Data">
+
+      <h2 class="did-footer__heading">Platform</h2>
+
+      <a href="/about/">About</a>
+      <a href="/mission/">Mission</a>
+      <a href="/archive/">Archive</a>
+
+    </nav>
+
+
+    <!-- ===============================================================
+         Connect
+         =============================================================== -->
+    <nav class="did-footer__section" aria-label="Contact and social links">
+
+      <h2 class="did-footer__heading">Connect</h2>
+
+      <a href="/contact/">
+        Contact
+      </a>
+
+      
+      
+      
+
+      <a class="did-footer__social-link" href="https://github.com/dataeden"  target="_blank"
+        rel="noopener noreferrer" >
+
+        
+        <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+        
+
+        <span>
+          GitHub
+        </span>
+
+      </a>
+
+      
+      
+      
+
+      <a class="did-footer__social-link" href="mailto:contact@datainsidedata.com" >
+
+        
+        <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+        
+
+        <span>
+          Email
+        </span>
+
+      </a>
+
+      
+      
+      
+
+      <a class="did-footer__social-link" href="https://www.linkedin.com/"  target="_blank"
+        rel="noopener noreferrer" >
+
+        
+        <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i>
+        
+
+        <span>
+          LinkedIn
+        </span>
+
+      </a>
+
+      
+      
+      
+
+      <!-- RSS / Atom feed -->
+      <a class="did-footer__social-link" href="/feed.xml">
+        <i class="fas fa-fw fa-rss" aria-hidden="true"></i>
+
+        <span>Feed</span>
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- ===============================================================
+       Footer Bottom Bar
+       =============================================================== -->
+  <div class="did-footer__bottom">
+
+    <p class="did-footer__copyright">
+      &copy; 2026 Data Inside Data™ LLC
+    </p>
+
+    <div class="did-footer__legal">
+
+      <a href="/privacy/">
+        Privacy
+      </a>
+
+      <a href="/terms/">
+        Terms
+      </a>
+
+    </div>
+
+    <p class="did-footer__platform">
+      Powered by Jekyll · GitHub Pages · Amazon Route 53
+    </p>
+
+  </div>
+
+</footer>
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J8RFQBF3L8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J8RFQBF3L8', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+    <script src="/assets/js/mermaid-init.js"></script>
+  
+
+
+  </body>
+</html>
